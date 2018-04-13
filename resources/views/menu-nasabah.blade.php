@@ -7,7 +7,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Nasabah</h1>
+      <h1>Nasabah</h1> <h1>Nasabah</h1>
       <small>Data Nasabah Individu</small>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
