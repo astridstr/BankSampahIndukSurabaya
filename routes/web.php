@@ -23,6 +23,8 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 // Menu Transaksi
 Route::get('/transaksi', 'TransaksiController@index');
+Route::get('/transaksi-tambah', 'TransaksiController@getFormTambahTransaksi');
+Route::post('/transaksi-tambah', 'TransaksiController@setFormTambahTransaksi');
 
 // Menu Nasabah
 Route::get('/nasabah', 'NasabahController@index');
