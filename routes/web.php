@@ -34,6 +34,7 @@ Route::post('/nasabah-tambah', 'NasabahController@setFormTambahNasabah');
 Route::get('/datasampah', 'SampahController@index');
 Route::get('/datasampah-tambah', 'SampahController@getFormTambahDataSampah');
 Route::post('/datasampah-tambah', 'SampahController@setFormTambahDataSampah');
+Route::post('/datasampah-edit', 'SampahController@editFormTambahDataSampah');
 // Menu Rapot
 Route::get('/rapotnasabah', 'RapotController@index');
 Route::get('/rapotnasabah-pertahun', 'RapotController@indexpertahun');
