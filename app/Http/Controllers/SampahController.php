@@ -44,7 +44,13 @@ class SampahController extends Controller
 
     public function editFormTambahDataSampah(Request $request)
     {
-        $sampah = Sampah::where('id','=',$id)->first();
+        $sampah = Sampah::find($id_sampah);
+        return view('form.edit.sampah', compact('sampah'));
+    }
+
+    public function updateFormTambahDataSampah(Request $request)
+    {
+        $sampah = new Sampah();
         $sampah->jenis_sampah = $request->input('jenis_sampah');
         $sampah->nama_sampah = $request->input('nama_sampah');
         $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
