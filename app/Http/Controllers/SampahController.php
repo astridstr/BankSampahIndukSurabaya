@@ -42,26 +42,35 @@ class SampahController extends Controller
         return redirect()->back();
     }
 
-    public function editFormTambahDataSampah(Request $request)
+    public function editFormTambahDataSampah($id_sampah)
     {
         $sampah = Sampah::find($id_sampah);
         return view('form.edit.sampah', compact('sampah'));
     }
 
-    public function updateFormTambahDataSampah(Request $request)
+    public function updateFormTambahDataSampah(Request $request, $id_sampah)
     {
-        $sampah = new Sampah();
+        //$sampah = new Sampah();
         $sampah->jenis_sampah = $request->input('jenis_sampah');
         $sampah->nama_sampah = $request->input('nama_sampah');
         $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
         $sampah->harga_stabil = $request->input('harga_stabil');
-        if ($request->hasFile('contoh_barang')) {
-            $image = $request->file('contoh_barang');
-            $path = time() . '.' .$image->getClientOriginalExtension();
-            Image::make($image)->resize(600, 300)->save(public_path('/img_sampah/' . $path ));
-            $sampah->contoh_barang = $path;
-            //$sampah->save();
+        $sampah = Sampah::find($id_sampah);
+        if($jenis_sampah != ""){
+            $sampah->jenis_sampah = $request->input('jenis_sampah');
+            $sampah->nama_sampah = $request->input('nama_sampah');
+            $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
+            $sampah->harga_stabil = $request->input('harga_stabil');
+
+            if ($request->hasFile('contoh_barang')) {
+                $image = $request->file('contoh_barang');
+                $path = time() . '.' .$image->getClientOriginalExtension();
+                Image::make($image)->resize(600, 300)->save(public_path('/img_sampah/' . $path ));
+                $sampah->contoh_barang = $path;
+                //$sampah->save();
+            }
         }
+        
 
         $sampah->save();
 

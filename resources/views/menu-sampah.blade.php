@@ -56,7 +56,7 @@
                   <th>{{$listsampah->harga_stabil}}</th>
                   <th>{{$listsampah->contoh_barang}}</th>
                   <th>
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{url('/datasampah-edit')}}">Edit</a></button>
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}">Edit</a></button>
                     <button type="button" class="btn btn-block btn-success btn-sm">Delete</button>
                   </th>
 

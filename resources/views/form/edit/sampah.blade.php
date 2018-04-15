@@ -24,18 +24,18 @@
            
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{url('/datasampah-edit')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('datasampah-update', array($sampah->id_sampah)) }}" method="post" enctype="multipart/form-data" role="form" >
               {{ csrf_field() }}
               <div class="box-body">
                 <!-- nama_sampah -->
                 <div class="form-group">
                   <label>Nama Sampah</label>
-                  <input type="text" class="form-control" placeholder="Nama Sampah" required="" name="nama_sampah">
+                  <input type="text" class="form-control" placeholder="Nama Sampah" required="" name="nama_sampah" value="{{ $sampah->nama_sampah }}">
                 </div>
                 <!-- jenis_sampah -->
                 <div class="form-group">
                 <label>Jenis Sampah</label>
-                  <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="">
+                  <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="" value="{{ $sampah->jenis_sampah }}">
                     <option selected="selected">Pilih Jenis Sampah</option>
                     <option value="Pusat">Tembaga</option>
                     <option value="Utara">Kuningan</option>
@@ -52,13 +52,13 @@
                 <div class="form-group">
                   <label>Harga Fluktuatif<small> *harga untuk nasabah kolektif</small></label>
                   <input type="text" class="form-control" placeholder="Harga Fluktuatif"
-                  name="harga_fluktuatif">
+                  name="harga_fluktuatif" value="{{ $sampah->harga_fluktuatif }}">
                 </div>
                 <!-- harga_stabil -->
                 <div class="form-group">
                   <label>Harga Stabil</label>
                   <input type="text" class="form-control" placeholder="Harga Stabil"
-                  name="harga_stabil" required="">
+                  name="harga_stabil" required="" value="{{ $sampah->harga_stabil }}">
                 </div>
                 <!-- contoh_barang -->
                 <div class="form-group">
