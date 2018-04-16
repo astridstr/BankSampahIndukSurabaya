@@ -51,10 +51,10 @@ class SampahController extends Controller
     public function updateFormTambahDataSampah(Request $request, $id_sampah)
     {
         //$sampah = new Sampah();
-        $sampah->jenis_sampah = $request->input('jenis_sampah');
-        $sampah->nama_sampah = $request->input('nama_sampah');
-        $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
-        $sampah->harga_stabil = $request->input('harga_stabil');
+        $jenis_sampah = $request->jenis_sampah;
+        $nama_sampah = $request->nama_sampah;
+        $harga_fluktuatif = $request->harga_fluktuatif;
+        $harga_stabil = $request->harga_stabil;
         $sampah = Sampah::find($id_sampah);
         if($jenis_sampah != ""){
             $sampah->jenis_sampah = $request->input('jenis_sampah');
@@ -70,10 +70,12 @@ class SampahController extends Controller
                 //$sampah->save();
             }
         }
-        
-
         $sampah->save();
-
         return redirect()->back();
+    }
+    public function deleteDataSampah($id_sampah)
+    {
+        Sampah::destroy($id_sampah);
+        return back();
     }
 }
