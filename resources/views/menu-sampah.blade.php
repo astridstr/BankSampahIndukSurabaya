@@ -43,7 +43,6 @@
                   <th>Harga Stabil</th>
                   <th>Contoh Barang</th>
                   <th>Aksi</th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -54,7 +53,8 @@
                   <th>{{$listsampah->nama_sampah}}</th>
                   <th>{{$listsampah->harga_fluktuatif}}</th>
                   <th>{{$listsampah->harga_stabil}}</th>
-                  <th>{{$listsampah->contoh_barang}}</th>
+                  <th><img class="card-img-top" src="{{asset('fotoupload/'. $listsampah->contoh_barang)}}" width="100%" height="100px"/>
+                      {{$listsampah->contoh_barang}}</th>
                   <th>
                     <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}">Edit</a></button>
                     <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}">Delete</a></button>

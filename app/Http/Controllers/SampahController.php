@@ -30,11 +30,11 @@ class SampahController extends Controller
         $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
         $sampah->harga_stabil = $request->input('harga_stabil');
         if ($request->hasFile('contoh_barang')) {
-            $image = $request->file('contoh_barang');
-            $path = time() . '.' .$image->getClientOriginalExtension();
-            Image::make($image)->resize(600, 300)->save(public_path('/img_sampah/' . $path ));
-            $sampah->contoh_barang = $path;
-            //$sampah->save();
+            $contoh_barang = $request->file('contoh_barang');
+            $contoh_barang_name = time() . '.' .$contoh_barang->getClientOriginalExtension();
+            Image::make($contoh_barang)->resize(300, 300)->save( public_path('\fotoupload' . $contoh_barang_name ));
+            $sampah->contoh_barang = $contoh_barang_name;
+           // $paket->save();
         }
 
         $sampah->save();

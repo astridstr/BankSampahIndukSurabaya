@@ -64,7 +64,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">Upload Gambar Sampah</label>
                   <!-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> -->
-                  <input type="file" id="exampleInputFile" name="image">
+                  <input type="file" id="contoh_barang" name="contoh_barang">
                   <p class="help-block">dengan format (.jpg)</p>
                 </div>
 
