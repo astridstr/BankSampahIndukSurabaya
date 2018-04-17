@@ -59,21 +59,9 @@
                     <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}">Edit</a></button>
                     <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}">Delete</a></button>
                   </th>
-
                 </tr>
                 @endforeach
-                
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Id Sampah</th>
-                  <th>Jenis Sampah</th>
-                  <th>Nama Sampah</th>
-                  <th>Harga Fluktuatif</th>
-                  <th>Harga Stabil</th>
-                  <th>Contoh Barang</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->
