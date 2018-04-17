@@ -62,14 +62,10 @@
                 </div>
                 <!-- contoh_barang -->
                 <div class="form-group">
-                  <label for="exampleInputFile">Upload Gambar Sampah</label>
-                  <!-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> -->
-                  <input type="file" id="contoh_barang" name="contoh_barang">
-                  <p class="help-block">dengan format (.jpg)</p>
+                  <label for="exampleInputFile">Contoh Barang</label>
+                  <input type="text" class="form-control" placeholder="Contoh Barang"
+                  name="contoh_barang" required="">
                 </div>
-
-
-                <!-- /.input group -->
               </div>
 
               <!-- /.box-body -->

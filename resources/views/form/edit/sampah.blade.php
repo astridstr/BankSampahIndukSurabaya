@@ -37,15 +37,15 @@
                 <label>Jenis Sampah</label>
                   <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="" value="{{ $sampah->jenis_sampah }}">
                     <option selected="selected">Pilih Jenis Sampah</option>
-                    <option value="Pusat">Tembaga</option>
-                    <option value="Utara">Kuningan</option>
-                    <option value="Pusat">Aluminium</option>
-                    <option value="Utara">Besi</option>
-                    <option value="Timur">Kertas</option>
-                    <option value="Selatan">Botol</option>
-                    <option value="Barat">Plastik Lembaran</option>
-                    <option value="Barat">Plastik</option>
-                    <option value="Barat">Lain-lain</option>
+                    <option value="Tembaga">Tembaga</option>
+                    <option value="Kuningan">Kuningan</option>
+                    <option value="Aluminium">Aluminium</option>
+                    <option value="Besi">Besi</option>
+                    <option value="Kertas">Kertas</option>
+                    <option value="Botol">Botol</option>
+                    <option value="Plastik Lembaran">Plastik Lembaran</option>
+                    <option value="Plastik">Plastik</option>
+                    <option value="Lain-lain">Lain-lain</option>
                   </select>
                 </div>
                 <!-- harga_fluktuatif -->
@@ -62,10 +62,9 @@
                 </div>
                 <!-- contoh_barang -->
                 <div class="form-group">
-                  <label for="exampleInputFile">Upload Gambar Sampah</label>
-                  <!-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> -->
-                  <input type="file" id="exampleInputFile" name="image">
-                  <p class="help-block">dengan format (.jpg)</p>
+                  <label for="exampleInputFile">Contoh Barang</label>
+                  <input type="text" class="form-control" placeholder="Contoh Barang"
+                  name="contoh_barang" required="" value="{{ $sampah->contoh_barang }}">
                 </div>
 
 
