@@ -35,8 +35,11 @@
               </div>
               <!-- id_sampah -->
               <div class="form-group">
-                <label>ID Sampah</label>
-                <div class="col-xs-4">
+                <label>Input Sampah</label>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-5">
+                  <label>ID Sampah</label>
                   <select class="form-control select2" style="width: 100%;">
                     <option selected="selected">Alabama</option>
                     <option>Alaska</option>
@@ -47,109 +50,14 @@
                     <option>Washington</option>
                   </select>
                 </div>
-              </div>
-              <!-- alamat -->
-              <div class="form-group">
-                <label>Alamat</label>
-                <input type="text" class="form-control" placeholder="Alamat"
-                name="alamat" required="">
-              </div>
-              <!-- kecamatan -->
-              <div class="form-group">
-                <label>Kecamatan</label>
-                <input type="text" class="form-control" placeholder="Kecamatan"
-                name="kecamatan" required="">
-              </div>
-              <!-- kelurahan -->
-              <div class="form-group">
-                <label>Kelurahan</label>
-                <input type="text" class="form-control" placeholder="Kelurahan"
-                name="kelurahan" required="">
-              </div>
-              <!-- wilayah -->
-              <div class="form-group">
-                <label>Wilayah</label>
-                <select class="form-control select2" style="width: 100%;" name="wilayah" required="">
-                  <option selected="selected">Pilih Wilayah</option>
-                  <option value="Pusat">Surabaya Pusat</option>
-                  <option value="Utara">Surabaya Utara</option>
-                  <option value="Timur">Surabaya Timur</option>
-                  <option value="Selatan">Surabaya Selatan</option>
-                  <option value="Barat">Surabaya Barat</option>
-                </select>
-              </div>
-              <!-- tgl_lahir -->
-              <div class="form-group">
-                <label>Tanggal Lahir</label>
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control pull-right" id="datepicker" name="tgl_lahir" required="">
+                <div class="col-xs-4">
+                  <label>Kuantitas</label>
+                  <input type="text" class="form-control" placeholder="Kuantitas"
+                  name="Kuantitas" required="">
                 </div>
+                <div id="addmore"></div>
+                <div id="add" class="btn btn-success btn-xs" style="margin-top: 30px"><i class="fa fa-plus-circle"></i>Tambah Sampah</div>
               </div>
-              <!-- tempat_lahir -->
-              <div class="form-group">
-                <label>Tempat Lahir</label>
-                <input type="text" class="form-control" placeholder="Tempat Lahir"
-                name="tempat_lahir" required="">
-              </div>
-              <!-- pekerjaan -->
-              <div class="form-group">
-                <label>Pekerjaan</label>
-                <input type="text" class="form-control" placeholder="Pekerjaan"
-                name="pekerjaan">
-              </div>
-              <!-- program_simpanan -->
-              <div class="form-group">
-                <label>Program Simpanan</label>
-                <select class="form-control select2" style="width: 100%;" name="program_simpanan" required="">
-                  <option selected="selected">Pilih Program Simpanan</option>
-                  <option value="Reguler">Tabungan Reguler</option>
-                  <option value="Pendidikan">Tabungan Pendidikan</option>
-                  <option value="Hari Raya">Tabungan Hari Raya</option>
-                </select>
-              </div>
-              <!-- cara_setor -->
-              <div class="form-group">
-                <label>Cara Penyetoran</label>
-                <select class="form-control" name="cara_setor" required="">
-                  <option value="Mandiri">Diantar sendiri</option>
-                  <option value="Dijemput">Diambil oleh petugas</option>
-                </select>
-              </div>
-              <!-- waktu_setor -->
-              <div class="form-group">
-                <label>Waktu Penyetoran</label>
-                <select class="form-control" name="waktu_setor" name="waktu_setor" required="">
-                  <option value="1 minggu sekali">1 minggu sekali</option>
-                  <option value="2 minggu sekali">2 minggu sekali</option>
-                  <option value="2 minggu sekali">2 minggu sekali</option>
-                  <option value="1 bulan sekali">1 bulan sekali</option>
-                </select>
-              </div>
-              <!-- hari_setor -->
-              <div class="form-group">
-                <label>Hari</label>
-                <select class="form-control" name="hari_setor" name="hari_setor" required="">
-                  <option value="Senin">Senin</option>
-                  <option value="Selasa">Selasa</option>
-                  <option value="Rabu">Rabu</option>
-                  <option value="Kamis">Kamis</option>
-                  <option value="Jumat">Jumat</option>
-                </select>
-              </div>
-              <!-- jam_setor -->
-              <div class="form-group">
-                <label>Jam</label>
-                <select class="form-control" name="jam_setor" name="jam_setor" required="">
-                  <option value="08.00-10.00">08.00-10.00</option>
-                  <option value="10.00-12.00">10.00-12.00</option>
-                  <option value="13.00-15.00">13.00-15.00</option>
-                </select>
-              </div>
-
-
               <!-- /.input group -->
             </div>
 
@@ -168,6 +76,11 @@
   </section>
   <!-- /.content -->
 </div>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $('#add').click(function(){
+    $('#addmore').append('<div class="form-group"><div class="col-xs-4"><label>ID Sampah</label><select class="form-control select2" style="width: 100%;"><option selected="selected">Alabama</option><option>Alaska</option><option>California</option><option>Delaware</option><option>Tennessee</option><option>Texas</option><option>Washington</option></select></div><div class="col-xs-4"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="Kuantitas" required=""></div></div>');
+    $('.add').select2();
+  });
+</script>
 @endsection
