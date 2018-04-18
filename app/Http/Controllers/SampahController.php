@@ -51,13 +51,7 @@ class SampahController extends Controller
         $harga_stabil = $request->harga_stabil;
         $contoh_barang = $request->contoh_barang;
         $sampah = Sampah::find($id_sampah);
-        if($jenis_sampah != ""){
-            $sampah->jenis_sampah = $request->input('jenis_sampah');
-            $sampah->nama_sampah = $request->input('nama_sampah');
-            $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
-            $sampah->harga_stabil = $request->input('harga_stabil');
-            $sampah->contoh_barang = $request->input('contoh_barang');
-        }
+        
         $sampah->save();
         return redirect()->back();
     }

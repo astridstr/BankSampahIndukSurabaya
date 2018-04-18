@@ -68,8 +68,8 @@
                   <td>{{$listnasabah->hari_setor}}</td>
                   <td>{{$listnasabah->jam_setor}}</td>
                   <td>
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listnasabah->no_rekening)) }}">Edit</a></button>
-                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('datasampah-delete', [$listnasabah->no_rekening]) }}">Delete</a></button>
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('nasabah-edit', array($listnasabah->no_rekening)) }}">Edit</a></button>
+                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('nasabah-delete', [$listnasabah->no_rekening]) }}">Delete</a></button>
                   </td>
                 </tr>
                 @endforeach

@@ -31,6 +31,9 @@ Route::get('/nasabah', 'NasabahController@index');
 Route::get('/nasabah-kolektif', 'NasabahController@indexkolektif');
 Route::get('/nasabah-tambah', 'NasabahController@getFormTambahNasabah');
 Route::post('/nasabah-tambah', 'NasabahController@setFormTambahNasabah');
+Route::get('/nasabah-edit/{no_rekening}', 'NasabahController@editFormTambahNasabah');
+Route::post('/nasabah-update/{no_rekening}', 'NasabahController@updateFormTambahNasabah');
+Route::get('/nasabah-delete/{no_rekening}', 'NasabahController@deleteNasabah');
 
 // Menu Sampah
 Route::get('/datasampah', 'SampahController@index');
