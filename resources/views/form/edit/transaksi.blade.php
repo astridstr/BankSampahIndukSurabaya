@@ -40,17 +40,20 @@
               <div class="form-group">
                 <div class="col-xs-5">
                   <label>ID Sampah</label>
-                  <select class="form-control select2" style="width: 100%;" name="id_sampah">
-                    <option selected="selected">ID Sampah</option>
-                    @foreach($sampah as $listsampah)
-                      <option>{{$listsampah->id_sampah}}</option>
-                    @endforeach
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">Alabama</option>
+                    <option>Alaska</option>
+                    <option>California</option>
+                    <option>Delaware</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Washington</option>
                   </select>
                 </div>
                 <div class="col-xs-4">
                   <label>Kuantitas</label>
                   <input type="text" class="form-control" placeholder="Kuantitas"
-                  name="kuantitas" required="">
+                  name="Kuantitas" required="">
                 </div>
                 <div id="addmore"></div>
                 <div id="add" class="btn btn-success btn-xs" style="margin-top: 30px"><i class="fa fa-plus-circle"></i>Tambah Sampah</div>
@@ -76,7 +79,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
   $('#add').click(function(){
-    $('#addmore').append('<div class="form-group"><div class="col-xs-4"><label>ID Sampah</label><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option>{{$listsampah->id_sampah}}</option>@endforeach</select></div><div class="col-xs-4"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></div></div>');
+    $('#addmore').append('<div class="form-group"><div class="col-xs-4"><label>ID Sampah</label><select class="form-control select2" style="width: 100%;"><option selected="selected">Alabama</option><option>Alaska</option><option>California</option><option>Delaware</option><option>Tennessee</option><option>Texas</option><option>Washington</option></select></div><div class="col-xs-4"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="Kuantitas" required=""></div></div>');
     $('.add').select2();
   });
 </script>
