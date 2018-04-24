@@ -16,8 +16,8 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"> Menu</li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Transaksi</span>
+          <a href="{{ url('/bukutabungan') }}"">
+            <i class="fa fa-book"></i> <span>Buku Tabungan</span>
           </a>
         </li>
         <li>

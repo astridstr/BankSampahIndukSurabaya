@@ -17,17 +17,17 @@
         <li class="header">Rapot Nasabah</li>
           <li>
             <a href="{{ url('/rapotnasabah') }}"><i class="fa fa-user"></i> 
-              <span>Perbulan</span></a>
+              <span>Rapot Nasabah</span></a>
           </li>
-          <li>
+          <!-- <li>
             <a href="{{ url('/rapotnasabah-pertahun') }}"><i class="fa fa-user"></i> 
               <span>Pertahun</span></a>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a href="{{ url('/rapotnasabah-perwilayah') }}"><i class="fa fa-group"></i> 
               <span>Perwilayah</span>
             </a>
-          </li>
+          </li> -->
           <li>
           <a href="{{ url('/home') }}">
             <span class="glyphicon glyphicon-menu-left"></span> <span>Back to menu</span>

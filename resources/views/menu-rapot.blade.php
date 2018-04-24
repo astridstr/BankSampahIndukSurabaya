@@ -8,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>Rapot Nasabah</h1>
-      <a href="{{ url('/home') }}" style="color: blue;"><small> <<  back to home</small></a>
+
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/rapotnasabah') }}">Rapot Nasabah</a></li>
-        <li class="active">Perbulan</li>
+        <li class="active">Pertahun</li>
       </ol>
     </section>
 
@@ -20,69 +20,225 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"><b>Perbulan</b></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+          <div class="nav-tabs-custom">
+            <!-- Tabs within a box -->
+            <ul class="nav nav-tabs pull-right">
+              <li class="active"><a href="#surabaya-utara" data-toggle="tab">2018</a></li>
+              <li><a href="#surabaya-timur" data-toggle="tab">2017</a></li>
+              <li><a href="#surabaya-selatan" data-toggle="tab">2016</a></li>
+              <li class="pull-left header">Pertahun
+              </li>
+            </ul>
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div class="chart tab-pane active" id="surabaya-utara" style="position: relative; height: 300px;">
+                <div class="box-body table-responsive">
+                  <small>  *Keterangan : T (Tonase), N (Nominal)</small>
+                <table id="example1" class="table table-bordered table-striped ">
                 <thead>
                 <tr>
-                  <th>No Rekening</th>
-                  <th>Nama</th>
-                  <th>Kategori</th>
-                  <th>No KTP(s)</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Tempat Lahir</th>
-                  <th>No HP</th>
-                  <th>Alamat</th>
-                  <th>Kelurahan</th>
-                  <th>Kecamatan</th>
-                  <th>Pekerjaan</th>
-                  <th>Program Simpanan</th>
+                  <th rowspan="2">Id</th>
+                  <th rowspan="2">Nama Bank Sampah</th>
+                  <th rowspan="2">Wilayah</th>
+                  <th colspan="2">Jan</th>
+                  <th colspan="2">Feb</th>
+                  <th colspan="2">Mar</th>
+                  <th colspan="2">Apr</th>
+                  <th colspan="2">Mei</th>
+                  <th colspan="2">Jun</th>
+                  <th colspan="2">Jul</th>
+                  <th colspan="2">Aug</th>
+                  <th colspan="2">Sep</th>
+                  <th colspan="2">Okt</th>
+                  <th colspan="2">Nov</th>
+                  <th colspan="2">Des</th>
+                </tr>
+                <tr>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($nasabah as $listnasabah)
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>Misc</td>
-                  <td>NetFront 3.4</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>A</td>
-                  <td>-</td>
-                  <td>A</td>
+                  <td>{{$listnasabah->no_rekening}}</td>
+                  <td>{{$listnasabah->nama_banksampah}}</td>
+                  <td>{{$listnasabah->wilayah}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
-                
+                @endforeach
                 </tbody>
-                <tfoot>
+                </table>
+                </div>
+              </div>
+              <div class="chart tab-pane" id="surabaya-timur" style="position: relative; height: 300px;">
+                <div class="box-body table-responsive">
+                  <small>  *Keterangan : T (Tonase), N (Nominal)</small>
+                <table id="example1" class="table table-bordered table-striped ">
+                <thead>
                 <tr>
-                  <th>No Rekening</th>
-                  <th>Nama</th>
-                  <th>Kategori</th>
-                  <th>No KTP(s)</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Tempat Lahir</th>
-                  <th>No HP</th>
-                  <th>Alamat</th>
-                  <th>Kelurahan</th>
-                  <th>Kecamatan</th>
-                  <th>Pekerjaan</th>
-                  <th>Program Simpanan</th>
+                  <th rowspan="2">Id</th>
+                  <th rowspan="2">Nama Bank Sampah</th>
+                  <th rowspan="2">Wilayah</th>
+                  <th colspan="2">Jan</th>
+                  <th colspan="2">Feb</th>
+                  <th colspan="2">Mar</th>
+                  <th colspan="2">Apr</th>
+                  <th colspan="2">Mei</th>
+                  <th colspan="2">Jun</th>
+                  <th colspan="2">Jul</th>
+                  <th colspan="2">Aug</th>
+                  <th colspan="2">Sep</th>
+                  <th colspan="2">Okt</th>
+                  <th colspan="2">Nov</th>
+                  <th colspan="2">Des</th>
                 </tr>
-                </tfoot>
-              </table>
+                <tr>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($nasabah as $listnasabah)
+                <tr>
+                  <td>{{$listnasabah->no_rekening}}</td>
+                  <td>{{$listnasabah->nama_banksampah}}</td>
+                  <td>{{$listnasabah->wilayah}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                @endforeach
+                </tbody>
+                </table>
+                </div>
+              </div>
+              <div class="chart tab-pane" id="surabaya-selatan" style="position: relative; height: 300px;">
+                <div class="box-body table-responsive">
+                  <small>  *Keterangan : T (Tonase), N (Nominal)</small>
+                <table id="example1" class="table table-bordered table-striped ">
+                <thead>
+                <tr>
+                  <th rowspan="2">Id</th>
+                  <th rowspan="2">Nama Bank Sampah</th>
+                  <th rowspan="2">Wilayah</th>
+                  <th colspan="2">Jan</th>
+                  <th colspan="2">Feb</th>
+                  <th colspan="2">Mar</th>
+                  <th colspan="2">Apr</th>
+                  <th colspan="2">Mei</th>
+                  <th colspan="2">Jun</th>
+                  <th colspan="2">Jul</th>
+                  <th colspan="2">Aug</th>
+                  <th colspan="2">Sep</th>
+                  <th colspan="2">Okt</th>
+                  <th colspan="2">Nov</th>
+                  <th colspan="2">Des</th>
+                </tr>
+                <tr>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                  <th>T</th>
+                  <th>N</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($nasabah as $listnasabah)
+                <tr>
+                  <td>{{$listnasabah->no_rekening}}</td>
+                  <td>{{$listnasabah->nama_banksampah}}</td>
+                  <td>{{$listnasabah->wilayah}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                @endforeach
+                </tbody>
+                </table>
+                </div>
+              </div>
+
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+          <!-- /.nav-tabs-custom -->
         </div>
         <!-- /.col -->
       </div>
