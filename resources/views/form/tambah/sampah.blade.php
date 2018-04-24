@@ -10,7 +10,7 @@
       <h1>Form Tambah Data Sampah</h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ url('/nasabah') }}">Nasabah</a></li>
+        <li><a href="{{ url('/datasampah') }}">Data Sampah</a></li>
         <li class="active">Tambah Data Sampah</li>
       </ol>
     </section>

@@ -24,6 +24,11 @@
               <span>Kolektif</span>
             </a>
           </li>
+          <li>
+          <a href="{{ url('/home') }}">
+            <span class="glyphicon glyphicon-menu-left"></span> <span>Back to menu</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

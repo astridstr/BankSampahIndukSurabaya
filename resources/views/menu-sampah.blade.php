@@ -36,13 +36,14 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Id Sampah</th>
+                  <th>Id</th>
                   <th>Jenis Sampah</th>
                   <th>Nama Sampah</th>
                   <th>Harga Fluktuatif</th>
                   <th>Harga Stabil</th>
                   <th>Contoh Barang</th>
-                  <th>Aksi</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,8 +56,10 @@
                   <th>{{$listsampah->harga_stabil}}</th>
                   <th>{{$listsampah->contoh_barang}}</th>
                   <th>
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}">Edit</a></button>
-                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}">Delete</a></button>
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                  </th>
+                  <th>
+                    <button type="button" class="btn btn-block btn-danger btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
                   </th>
                 </tr>
                 @endforeach
