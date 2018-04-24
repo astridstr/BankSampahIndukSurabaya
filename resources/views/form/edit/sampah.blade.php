@@ -7,11 +7,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Form Tambah Data Sampah</h1>
+      <h1>Form Edit Data Sampah</h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/nasabah') }}">Nasabah</a></li>
-        <li class="active">Tambah Data Sampah</li>
+        <li class="active">Edit Data Sampah</li>
       </ol>
     </section>
 
@@ -24,48 +24,47 @@
            
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{url('/datasampah-edit')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('datasampah-update', array($sampah->id_sampah)) }}" method="post" enctype="multipart/form-data" role="form" >
               {{ csrf_field() }}
               <div class="box-body">
                 <!-- nama_sampah -->
                 <div class="form-group">
                   <label>Nama Sampah</label>
-                  <input type="text" class="form-control" placeholder="Nama Sampah" required="" name="nama_sampah">
+                  <input type="text" class="form-control" placeholder="Nama Sampah" required="" name="nama_sampah" value="{{ $sampah->nama_sampah }}">
                 </div>
                 <!-- jenis_sampah -->
                 <div class="form-group">
                 <label>Jenis Sampah</label>
-                  <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="">
+                  <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="" value="{{ $sampah->jenis_sampah }}">
                     <option selected="selected">Pilih Jenis Sampah</option>
-                    <option value="Pusat">Tembaga</option>
-                    <option value="Utara">Kuningan</option>
-                    <option value="Pusat">Aluminium</option>
-                    <option value="Utara">Besi</option>
-                    <option value="Timur">Kertas</option>
-                    <option value="Selatan">Botol</option>
-                    <option value="Barat">Plastik Lembaran</option>
-                    <option value="Barat">Plastik</option>
-                    <option value="Barat">Lain-lain</option>
+                    <option value="Tembaga">Tembaga</option>
+                    <option value="Kuningan">Kuningan</option>
+                    <option value="Aluminium">Aluminium</option>
+                    <option value="Besi">Besi</option>
+                    <option value="Kertas">Kertas</option>
+                    <option value="Botol">Botol</option>
+                    <option value="Plastik Lembaran">Plastik Lembaran</option>
+                    <option value="Plastik">Plastik</option>
+                    <option value="Lain-lain">Lain-lain</option>
                   </select>
                 </div>
                 <!-- harga_fluktuatif -->
                 <div class="form-group">
                   <label>Harga Fluktuatif<small> *harga untuk nasabah kolektif</small></label>
                   <input type="text" class="form-control" placeholder="Harga Fluktuatif"
-                  name="harga_fluktuatif">
+                  name="harga_fluktuatif" value="{{ $sampah->harga_fluktuatif }}">
                 </div>
                 <!-- harga_stabil -->
                 <div class="form-group">
                   <label>Harga Stabil</label>
                   <input type="text" class="form-control" placeholder="Harga Stabil"
-                  name="harga_stabil" required="">
+                  name="harga_stabil" required="" value="{{ $sampah->harga_stabil }}">
                 </div>
                 <!-- contoh_barang -->
                 <div class="form-group">
-                  <label for="exampleInputFile">Upload Gambar Sampah</label>
-                  <!-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> -->
-                  <input type="file" id="exampleInputFile" name="image">
-                  <p class="help-block">dengan format (.jpg)</p>
+                  <label for="exampleInputFile">Contoh Barang</label>
+                  <input type="text" class="form-control" placeholder="Contoh Barang"
+                  name="contoh_barang" required="" value="{{ $sampah->contoh_barang }}">
                 </div>
 
 

@@ -29,36 +29,35 @@ class SampahController extends Controller
         $sampah->nama_sampah = $request->input('nama_sampah');
         $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
         $sampah->harga_stabil = $request->input('harga_stabil');
-        if ($request->hasFile('contoh_barang')) {
-            $image = $request->file('contoh_barang');
-            $path = time() . '.' .$image->getClientOriginalExtension();
-            Image::make($image)->resize(600, 300)->save(public_path('/img_sampah/' . $path ));
-            $sampah->contoh_barang = $path;
-            //$sampah->save();
-        }
+        $sampah->contoh_barang = $request->input('contoh_barang');
 
         $sampah->save();
 
         return redirect()->back();
     }
 
-    public function editFormTambahDataSampah(Request $request)
+    public function editFormTambahDataSampah($id_sampah)
     {
-        $sampah = Sampah::where('id','=',$id)->first();
-        $sampah->jenis_sampah = $request->input('jenis_sampah');
-        $sampah->nama_sampah = $request->input('nama_sampah');
-        $sampah->harga_fluktuatif = $request->input('harga_fluktuatif');
-        $sampah->harga_stabil = $request->input('harga_stabil');
-        if ($request->hasFile('contoh_barang')) {
-            $image = $request->file('contoh_barang');
-            $path = time() . '.' .$image->getClientOriginalExtension();
-            Image::make($image)->resize(600, 300)->save(public_path('/img_sampah/' . $path ));
-            $sampah->contoh_barang = $path;
-            //$sampah->save();
-        }
+        $sampah = Sampah::find($id_sampah);
+        return view('form.edit.sampah', compact('sampah'));
+    }
 
+    public function updateFormTambahDataSampah(Request $request, $id_sampah)
+    {
+        //$sampah = new Sampah();
+        $jenis_sampah = $request->jenis_sampah;
+        $nama_sampah = $request->nama_sampah;
+        $harga_fluktuatif = $request->harga_fluktuatif;
+        $harga_stabil = $request->harga_stabil;
+        $contoh_barang = $request->contoh_barang;
+        $sampah = Sampah::find($id_sampah);
+        
         $sampah->save();
-
         return redirect()->back();
+    }
+    public function deleteDataSampah($id_sampah)
+    {
+        Sampah::destroy($id_sampah);
+        return back();
     }
 }

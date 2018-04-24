@@ -8,16 +8,14 @@ class Transaksi extends Model
 {
     protected $table = 'transaksi';
     protected $primaryKey = 'id_transaksi';
-    public $timestamps = false;
+    public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
     'no_rekening',
-    'id_sampah', 
-    'kuantitas',
     ]; 
     
-    const CREATED_AT = 'tanggal_transaksi';
-    const UPDATED_AT = 'last_update';
+    //const CREATED_AT = 'tanggal_transaksi';
+    //const UPDATED_AT = 'last_update';
 
     public function transaksi()
     {
