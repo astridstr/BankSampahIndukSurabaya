@@ -7,8 +7,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Nasabah</h1>
-      <small>Data Nasabah Kolektif</small>
+      <h1>Nasabah <b>Kolektif</b></h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/nasabah') }}">Nasabah</a></li>
@@ -40,7 +39,7 @@
                 <tr>
                   <th>No Rek</th>
                   <th>Nama</th>
-                  <th>Nama Bank Sampah</th>
+                  <th>Bank Sampah</th>
                   <th>No Telp</th>
                   <th>Tgl Lahir</th>
                   <th>Alamat</th>
@@ -49,7 +48,8 @@
                   <th>Waktu</th>
                   <th>Hari</th>
                   <th>Jam</th>
-                  <th>Aksi</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,27 +67,14 @@
                   <td>{{$listnasabah->hari_setor}}</td>
                   <td>{{$listnasabah->jam_setor}}</td>
                   <td>
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('nasabah-edit', array($listnasabah->no_rekening)) }}">Edit</a></button>
-                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('nasabah-delete', [$listnasabah->no_rekening]) }}">Delete</a></button>
+                    <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('nasabah-edit', array($listnasabah->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm"><a href="{{ url('nasabah-delete', [$listnasabah->no_rekening]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
                   </td>
                 </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>No Rek</th>
-                  <th>Nama</th>
-                  <th>No Telp</th>
-                  <th>Tgl Lahir</th>
-                  <th>Alamat</th>
-                  <th>Wilayah</th>
-                  <th>Pekerjaan</th>
-                  <th>Penyetoran</th>
-                  <th>Waktu</th>
-                  <th>Hari</th>
-                  <th>Jam</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

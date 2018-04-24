@@ -49,18 +49,18 @@
                 <tbody>
                 @foreach($sampah as $listsampah)
                 <tr>
-                  <th>{{$listsampah->id_sampah}}</th>
-                  <th>{{$listsampah->jenis_sampah}}</th>
-                  <th>{{$listsampah->nama_sampah}}</th>
-                  <th>{{$listsampah->harga_fluktuatif}}</th>
-                  <th>{{$listsampah->harga_stabil}}</th>
-                  <th>{{$listsampah->contoh_barang}}</th>
-                  <th>
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
-                  </th>
-                  <th>
-                    <button type="button" class="btn btn-block btn-danger btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
-                  </th>
+                  <td>{{$listsampah->id_sampah}}</td>
+                  <td>{{$listsampah->jenis_sampah}}</td>
+                  <td>{{$listsampah->nama_sampah}}</td>
+                  <td>{{$listsampah->harga_fluktuatif}}</td>
+                  <td>{{$listsampah->harga_stabil}}</td>
+                  <td>{{$listsampah->contoh_barang}}</td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm"><a href="{{ url('datasampah-delete', [$listsampah->id_sampah]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>
