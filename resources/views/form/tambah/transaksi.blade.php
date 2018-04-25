@@ -38,16 +38,16 @@
                 <label>Input Sampah</label>
               </div>
               <div class="form-group">
-                <div class="col-xs-5">
-                  <label>ID Sampah</label>
+                <div class="col-xs-6">
+                  <label>Nama Sampah</label>
                   <select class="form-control select2" style="width: 100%;" name="id_sampah">
-                    <option selected="selected">ID Sampah</option>
+                    <option selected="selected">Pilih sampah</option>
                     @foreach($sampah as $listsampah)
-                      <option>{{$listsampah->id_sampah}}</option>
+                      <option>{{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>
                     @endforeach
                   </select>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-3">
                   <label>Kuantitas</label>
                   <input type="text" class="form-control" placeholder="Kuantitas"
                   name="kuantitas" required="">
@@ -76,7 +76,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
   $('#add').click(function(){
-    $('#addmore').append('<div class="form-group"><div class="col-xs-4"><label>ID Sampah</label><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option>{{$listsampah->id_sampah}}</option>@endforeach</select></div><div class="col-xs-4"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></div></div>');
+    $('#addmore').append('<div class="form-group"><div class="col-xs-6"><label>Nama Sampah</label><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">Pilih sampah</option>@foreach($sampah as $listsampah)<option>{{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>@endforeach</select></div><div class="col-xs-3"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></div></div>');
     $('.add').select2();
   });
 </script>
