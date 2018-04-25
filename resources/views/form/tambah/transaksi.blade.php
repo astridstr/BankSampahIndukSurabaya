@@ -37,6 +37,7 @@
               <div class="form-group">
                 <label>Input Sampah</label>
               </div>
+<<<<<<< HEAD
               <table class="table table-bordered" id="dynamic_field">
                 <thead>
                   <tr>
@@ -61,6 +62,28 @@
             </table>
             <!-- /.input group -->
           </div>
+=======
+              <div class="form-group">
+                <div class="col-xs-6">
+                  <label>Nama Sampah</label>
+                  <select class="form-control select2" style="width: 100%;" name="id_sampah">
+                    <option selected="selected">Pilih sampah</option>
+                    @foreach($sampah as $listsampah)
+                      <option>{{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col-xs-3">
+                  <label>Kuantitas</label>
+                  <input type="text" class="form-control" placeholder="Kuantitas"
+                  name="kuantitas" required="">
+                </div>
+                <div id="addmore"></div>
+                <div id="add" class="btn btn-success btn-xs" style="margin-top: 30px"><i class="fa fa-plus-circle"></i>Tambah Sampah</div>
+              </div>
+              <!-- /.input group -->
+            </div>
+>>>>>>> e2ccc50e390eb8c10a5595703e374d9abaacd989
 
           <!-- /.box-body -->
 
@@ -81,6 +104,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
   $(document).ready(function(){
     var i=1;
     $('#add').click(function(){
@@ -92,6 +116,11 @@
       var button_id = $(this).attr("id"); 
       $('#row'+button_id+'').remove();
     });
+=======
+  $('#add').click(function(){
+    $('#addmore').append('<div class="form-group"><div class="col-xs-6"><label>Nama Sampah</label><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">Pilih sampah</option>@foreach($sampah as $listsampah)<option>{{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>@endforeach</select></div><div class="col-xs-3"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></div></div>');
+    $('.add').select2();
+>>>>>>> e2ccc50e390eb8c10a5595703e374d9abaacd989
   });
 </script>
 @endsection
