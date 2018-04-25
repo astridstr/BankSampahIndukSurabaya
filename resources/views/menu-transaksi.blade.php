@@ -54,7 +54,7 @@
                     <td>{{$listtransaksi->created_at}}</td>
                     <td>
                       <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listtransaksi->no_rekening)) }}">Edit</a></button>
-                      <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('transaksi-delete', [$listtransaksi->no_rekening]) }}">Delete</a></button>
+                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('transaksi-delete', [$listtransaksi->no_rekening], [$listinputsampah->no_rekening]) }}">Delete</a></button>
                     </td>
                   </tr>
                   @endforeach

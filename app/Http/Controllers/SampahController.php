@@ -39,6 +39,7 @@ class SampahController extends Controller
     public function editFormTambahDataSampah($id_sampah)
     {
         $sampah = Sampah::find($id_sampah);
+        //dd($sampah);
         return view('form.edit.sampah', compact('sampah'));
     }
 
