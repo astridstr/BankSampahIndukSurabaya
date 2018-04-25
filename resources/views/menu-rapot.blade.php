@@ -81,7 +81,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($nasabah as $listnasabah)
+                @foreach($rapot2018 as $listnasabah)
                 <tr>
                   <td>{{$listnasabah->no_rekening}}</td>
                   <td>{{$listnasabah->nama_banksampah}}</td>
@@ -149,7 +149,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($nasabah as $listnasabah)
+                @foreach($rapot2017 as $listnasabah)
                 <tr>
                   <td>{{$listnasabah->no_rekening}}</td>
                   <td>{{$listnasabah->nama_banksampah}}</td>
@@ -217,7 +217,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($nasabah as $listnasabah)
+                @foreach($rapot2017 as $listnasabah)
                 <tr>
                   <td>{{$listnasabah->no_rekening}}</td>
                   <td>{{$listnasabah->nama_banksampah}}</td>

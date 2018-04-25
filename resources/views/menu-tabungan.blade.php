@@ -23,13 +23,13 @@
            
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{url('/datasampah-tambah')}}" method="post" enctype="multipart/form-data">
+            <form role="form" action="{{url('/bukutabungan-cari')}}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="box-body">
                 <!-- nama_sampah -->
                 <div class="form-group">
                   <label>No Rekening</label>
-                  <input type="text" class="form-control" placeholder="Nama Sampah" required="" name="nama_sampah">
+                  <input type="text" class="form-control" placeholder="No rekening" required="" name="no_rekening">
                 </div>
               </div>
               <!-- /.box-body -->

@@ -51,7 +51,7 @@ Route::get('/rapotnasabah-pertahun', 'RapotController@indexpertahun');
 Route::get('/rapotnasabah-perwilayah', 'RapotController@indexperwilayah');
 //Menu Buku Tabungan
 Route::get('/bukutabungan', 'TabunganController@index');
-Route::post('/bukutabungan', 'TabunganController@index');
+Route::post('/bukutabungan-cari', 'TabunganController@cari');
 
 // Route::get('/listnasabah', function () {
 //     return view('admin/home');
