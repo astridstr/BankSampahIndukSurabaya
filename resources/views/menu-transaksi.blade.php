@@ -17,11 +17,31 @@
   <!-- Main content -->
   <section class="content">
     <div class="row">
+      <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>150</h3>
+
+              <p>Transaksi</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-balance-scale"></i>
+            </div>
+            <div class="small-box-footer"></div>
+          </div>
+        </div>
+    </div>
+    <div class="row">    
       <a href="{{ url('/transaksi-tambah') }}">
-        <div class="col-xs-3">
+        <div class="col-lg-3 col-xs-6">
           <div class="box">
-            <div class="box-header">
-              <i class="fa fa-plus-square"></i> <span><h3 class="box-title">Tambah Data Transaksi</h3></span>
+            <div class="box-header with-border">
+              <div class="box-tools">
+                <button type="button" class="btn btn-box-tool pull-left"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <span><h3 class="box-title">Tambah Transaksi</h3></span>
             </div>
           </div>
         </div>

@@ -22,12 +22,15 @@ class TransaksiController extends Controller
 
 public function getFormTambahTransaksi()
 {
-    return view('form.tambah.transaksi');
+    $sampah = DB::select("select * from sampah");
+
+   return view('form.tambah.transaksi', ['sampah'=>$sampah]);
 }
 
 public function setFormTambahTransaksi(Request $request)
 {
-        //return $request;
+    $Sampah = DB::select("select * from Sampah");
+
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
     $transaksi->save();

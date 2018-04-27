@@ -18,7 +18,7 @@
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <!-- general form elements -->
         <div class="box box-primary">
 
@@ -37,53 +37,43 @@
               <div class="form-group">
                 <label>Input Sampah</label>
               </div>
-<<<<<<< HEAD
+
               <table class="table table-bordered" id="dynamic_field">
                 <thead>
                   <tr>
                     <th>ID Sampah</th>
                     <th>Kuantitas</th>
-                    <th>Tambah Sampah</th>              
+                    <th>Add More</th>        
+                    <th>Delete</th>      
                   </tr>
                 </thead>
                 <tbody>
                  <tr>
                   <td>
-                    <input type="text" class="form-control" placeholder="ID Sampah" name="id_sampah" required="">
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" placeholder="Kuantitas" name="kuantitas" required="">
-                  </td>
-                  <td>
-                    <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- /.input group -->
-          </div>
-=======
-              <div class="form-group">
-                <div class="col-xs-5">
-                  <label>ID Sampah</label>
-                  <select class="form-control select2" style="width: 100%;" name="id_sampah">
+                    <select class="form-control select2" style="width: 100%;" name="id_sampah">
                     <option selected="selected">ID Sampah</option>
                     @foreach($sampah as $listsampah)
                       <option>{{$listsampah->id_sampah}}</option>
                     @endforeach
                   </select>
-                </div>
-                <div class="col-xs-4">
-                  <label>Kuantitas</label>
-                  <input type="text" class="form-control" placeholder="Kuantitas"
-                  name="kuantitas" required="">
-                </div>
-                <div id="addmore"></div>
-                <div id="add" class="btn btn-success btn-xs" style="margin-top: 30px"><i class="fa fa-plus-circle"></i>Tambah Sampah</div>
-              </div>
-              <!-- /.input group -->
-            </div>
->>>>>>> e2ccc50e390eb8c10a5595703e374d9abaacd989
+                  </td>
+                  <td>
+                      <input type="text" class="form-control" placeholder="Kuantitas" name="kuantitas" required="">
+                  </td>
+                  <td>
+                    <button type="button" id="add_row" class="btn btn-success">Add More</button>
+                  </td>
+                  <td>
+                    <button type="button" id="delete_row" class="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- /.input group -->
+
+
+          </div>
+              <!-- /.input group --
 
           <!-- /.box-body -->
 

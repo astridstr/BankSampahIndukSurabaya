@@ -17,7 +17,7 @@
         <li class="header"> Menu</li>
         <li class="treeview">
           <a href="{{ url('/bukutabungan') }}"">
-            <i class="fa fa-book"></i> <span>Buku Tabungan</span>
+            <i class="fa fa-book"></i> <span>Transaksi</span>
           </a>
         </li>
         <li>
