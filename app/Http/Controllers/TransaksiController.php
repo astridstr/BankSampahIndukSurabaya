@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Input;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
@@ -52,19 +53,15 @@ public function editFormTambahTransaksi($no_rekening)
 
 public function updateFormTambahTransaksi(Request $request, $no_rekening)
 {
-    //return $request;
-    $transaksi = Transaksi::find($no_rekening);
-    $no_rekening = $request->no_rekening;
-    $transaksi->save();
-
-    $inputsampah = InputSampah::find($no_rekening);
+    $transaksi = Transaksi::where('no_rekening',$no_rekening)->first();
     $id_sampah = $request->id_sampah;
-    $inputsampah->no_rekening = $no_rekening;
-    $kuantitas = $request->kuantitas;    
+    $kuantitas = $request->kuantitas;
+    $inputsampah = InputSampah::where('no_rekening',$no_rekening)->first();   
     $inputsampah->save();
-
+    //return $request;
     return redirect('/transaksi');
 }
+
 public function deleteTransaksi($no_rekening)
 {
     Transaksi::destroy($no_rekening);
