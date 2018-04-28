@@ -24,7 +24,7 @@
 
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="{{ url('transaksi-update', array($transaksi->no_rekening)) }}" method="post" enctype="multipart/form-data">
+          <form role="form" action="" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="box-body">
               <!-- no_rekening -->
@@ -90,7 +90,6 @@
       i++;
       $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="form-control" placeholder="ID Sampah" name="id_sampah" required=""></td><td><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
-
     $(document).on('click', '.btn_remove', function(){
       var button_id = $(this).attr("id"); 
       $('#row'+button_id+'').remove();

@@ -27,7 +27,7 @@ public function getFormTambahTransaksi()
 
 public function setFormTambahTransaksi(Request $request)
 {
-        //return $request;
+    //return $request;
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
     $transaksi->save();
@@ -42,7 +42,7 @@ public function setFormTambahTransaksi(Request $request)
 }
 public function editFormTambahTransaksi($no_rekening)
 {
-        //return $no_rekening;
+    //return $no_rekening;
     $transaksi = DB::select("select * from transaksi where no_rekening=$no_rekening");
     foreach ($transaksi as $transaksi) {}
         $inputsampah = DB::select("select * from inputsampah where no_rekening=$no_rekening");
