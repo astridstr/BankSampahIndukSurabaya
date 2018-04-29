@@ -67,7 +67,7 @@
               <tfoot>
                 <tr>
                   <td colspan="3" style="text-align: left;">
-                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+                    <input type="button" class="btn btn-lg btn-block btn-success " id="addrow" value="Add Row" />
                   </td>
                 </tr>
                 <tr>
@@ -107,7 +107,7 @@ $(document).ready(function () {
     var newRow = $("<tr>");
     var cols = "";
 
-    cols += '<td><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option value="3">{{$listsampah->id_sampah}}</option>@endforeach</select></td>';
+    cols += '<td><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option value="{{$listsampah->id_sampah}}">{{$listsampah->id_sampah}} - {{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>@endforeach</select></td>';
     cols += '<td><input type="text" class="form-control" placeholder="Kuantitas" name="kuantitas" required=""></td>';
     cols += '<td><input type="button" id="delete_row" class="ibtnDel btn btn-danger" value="Delete"></td>';
     newRow.append(cols);

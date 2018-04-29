@@ -60,24 +60,24 @@
                   <th>ID Sampah</th>
                   <th>Kuantitas</th>
                   <th>Tanggal Transaksi</th>
-                  <th>Aksi</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
-                
-                  @foreach($transaksi as $listtransaksi)
-                  @foreach($inputsampah as $listinputsampah)
+                  @foreach($data as $listdata)
                   <tr>
-                    <td>{{$listtransaksi->no_rekening}}</td>
-                    <td>{{$listinputsampah->id_sampah}}</td>
-                    <td>{{$listinputsampah->kuantitas}}</td>
-                    <td>{{$listtransaksi->created_at}}</td>
+                    <td>{{$listdata->no_rekening}}</td>
+                    <td>{{$listdata->id_sampah}}</td>
+                    <td>{{$listdata->kuantitas}}</td>
+                    <td>{{$listdata->created_at}}</td>
                     <td>
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listtransaksi->no_rekening)) }}">Edit</a></button>
-                    <button type="button" class="btn btn-block btn-success btn-sm"><a href="{{ url('transaksi-delete', [$listtransaksi->no_rekening], [$listinputsampah->no_rekening]) }}">Delete</a></button>
+                      <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listdata->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger btn-sm"><a href="{{ url('transaksi-delete', [$listdata->id]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
                     </td>
                   </tr>
-                  @endforeach
                   @endforeach
               </tbody>
             </table>

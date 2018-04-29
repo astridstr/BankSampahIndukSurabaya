@@ -15,10 +15,9 @@ class TransaksiController extends Controller
 {
  public function index()
  {
-   $transaksi = DB::select("select * from transaksi");
-   $inputsampah = DB::select("select * from inputsampah");
-        //dd($transaksi);
-   return view('menu-transaksi', ['transaksi'=>$transaksi], ['inputsampah'=>$inputsampah]);
+   $data = DB::select("select * from inputsampah");
+
+   return view('menu-transaksi', ['data'=>$data]);
 }
 
 public function getFormTambahTransaksi()
@@ -38,6 +37,7 @@ public function setFormTambahTransaksi(Request $request)
     $transaksi->save();
 
     $inputsampah = new InputSampah();
+    // $inputsampah->id_transaksi = $transaksi->id_transaksi;
     $inputsampah->id_sampah = $request->input('id_sampah');
     $inputsampah->no_rekening=$transaksi->no_rekening;
     $inputsampah->kuantitas = $request->input('kuantitas');
@@ -66,10 +66,13 @@ public function updateFormTambahTransaksi(Request $request, $no_rekening)
     return redirect('/transaksi');
 }
 
-public function deleteTransaksi($no_rekening)
+public function deleteTransaksi($id)
 {
-    Transaksi::destroy($no_rekening);
-    InputSampah::destroy($no_rekening);
-    return back();
+    // dd($id);
+    $id_transaksi = DB::select("SELECT `id_transaksi` FROM `inputsampah` WHERE `id` = $id");
+    // dd($id_transaksi);
+    InputSampah::destroy($id);
+    Transaksi::destroy($id_transaksi);
+    return redirect('/transaksi');
 }
 }
