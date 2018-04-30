@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Transaksi extends Model
 {
     protected $table = 'transaksi';
@@ -16,12 +13,10 @@ class Transaksi extends Model
     
     //const CREATED_AT = 'tanggal_transaksi';
     //const UPDATED_AT = 'last_update';
-
     public function transaksi()
     {
         return $this->belongsTo('App\Nasabah', 'no_rekening');
     }
-
      public function sampah()
     {
         return $this->belongsToMany('App\Sampah');

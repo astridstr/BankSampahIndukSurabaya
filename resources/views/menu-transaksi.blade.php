@@ -57,8 +57,7 @@
               <thead>
                 <tr>
                   <th>No Rek</th>
-                  <th>ID Sampah</th>
-                  <th>Kuantitas</th>
+                  <th>Total Transaksi</th>
                   <th>Tanggal Transaksi</th>
                   <th>Edit</th>
                   <th>Delete</th>
@@ -68,9 +67,8 @@
                   @foreach($data as $listdata)
                   <tr>
                     <td>{{$listdata->no_rekening}}</td>
-                    <td>{{$listdata->id_sampah}}</td>
-                    <td>{{$listdata->kuantitas}}</td>
-                    <td>{{$listdata->created_at}}</td>
+                    <td>Total Transaksi</td>
+                    <td>Tanggal Transaksi</td>
                     <td>
                       <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listdata->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
                     </td>

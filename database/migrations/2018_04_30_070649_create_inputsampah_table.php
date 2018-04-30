@@ -18,6 +18,8 @@ class CreateInputsampahTable extends Migration
             $table->string('no_rekening');
             $table->string('id_sampah');
             $table->integer('kuantitas');
+            $table->integer('harga');
+            $table->integer('amount');
             $table->timestamps();
         });
     }

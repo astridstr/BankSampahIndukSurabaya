@@ -16,33 +16,39 @@ class TransaksiController extends Controller
  public function index()
  {
    $data = DB::select("select * from inputsampah");
-
    return view('menu-transaksi', ['data'=>$data]);
+}
+
+public function findPrice(Request $request)
+{
+    $price=Sampah::select('harga_fluktuatif')->where('id_sampah',$request->id_sampah)->first();
+    return response()->json($price);
 }
 
 public function getFormTambahTransaksi()
 {
     $sampah = DB::select("select * from sampah");
-
-   return view('form.tambah.transaksi', ['sampah'=>$sampah]);
+    return view('form.tambah.transaksi', ['sampah'=>$sampah]);
 }
 
 public function setFormTambahTransaksi(Request $request)
 {
 
-    $Sampah = DB::select("select * from Sampah");
+    $sampah = DB::select("select * from Sampah");
     //return $request;
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
-    $transaksi->save();
-
-    $inputsampah = new InputSampah();
-    // $inputsampah->id_transaksi = $transaksi->id_transaksi;
-    $inputsampah->id_sampah = $request->input('id_sampah');
-    $inputsampah->no_rekening=$transaksi->no_rekening;
-    $inputsampah->kuantitas = $request->input('kuantitas');
-    $inputsampah->save();
-
+    if($transaksi->save()){
+        $id = $transaksi->id;
+        foreach ($request as $key => $v) {
+            $data = array('no_rekening' => $id,
+                'id_sampah' => $v,
+                'kuantitas'=>$request->kuantitas [$key],
+                'harga'=>$request->harga [$key],
+                'amount'=>$request->amount [$key]);
+            InputSampah::insert($data);
+        }
+    }
     return redirect('/transaksi');
 }
 public function editFormTambahTransaksi($no_rekening)
@@ -58,9 +64,9 @@ public function editFormTambahTransaksi($no_rekening)
 public function updateFormTambahTransaksi(Request $request, $no_rekening)
 {
     $transaksi = Transaksi::where('no_rekening',$no_rekening)->first();
+    $inputsampah = InputSampah::where('no_rekening',$no_rekening)->first();
     $id_sampah = $request->id_sampah;
-    $kuantitas = $request->kuantitas;
-    $inputsampah = InputSampah::where('no_rekening',$no_rekening)->first();   
+    $kuantitas = $request->kuantitas;   
     $inputsampah->save();
     //return $request;
     return redirect('/transaksi');
@@ -69,10 +75,10 @@ public function updateFormTambahTransaksi(Request $request, $no_rekening)
 public function deleteTransaksi($id)
 {
     // dd($id);
-    $id_transaksi = DB::select("SELECT `id_transaksi` FROM `inputsampah` WHERE `id` = $id");
+    $id_transaksi = DB::select("SELECT `id` FROM `inputsampah` WHERE `id` = $id");
     // dd($id_transaksi);
     InputSampah::destroy($id);
-    Transaksi::destroy($id_transaksi);
+    //Transaksi::destroy($id_transaksi);
     return redirect('/transaksi');
 }
 }

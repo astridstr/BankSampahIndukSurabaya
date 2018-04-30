@@ -37,27 +37,34 @@
               <div class="form-group">
                 <label>Input Sampah</label>
               </div>
-
               <table id="myTable" class=" table order-list">
                 <thead>
                   <tr>
                     <th>ID Sampah</th>
-                    <th>Kuantitas</th>       
+                    <th>Kuantitas</th>
+                    <th>Harga</th>
+                    <th>Amount</th>       
                     <th>Delete</th>      
                   </tr>
                 </thead>
                 <tbody>
                  <tr>
                   <td>
-                    <select class="form-control select2" name="id_sampah">
-                      <option selected="selected">ID Sampah</option>
+                    <select class="form-control productname" name="id_sampah[]">
+                      <option value="0" selected="true" disabled="true">ID Sampah</option>
                       @foreach($sampah as $listsampah)
                       <option value="{{$listsampah->id_sampah}}">{{$listsampah->id_sampah}} - {{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>
                       @endforeach
                     </select>
                   </td>
                   <td>
-                      <input type="text" class="form-control" placeholder="Kuantitas" name="kuantitas" required="">
+                    <input type="text" class="form-control qty" placeholder="Kuantitas" name="kuantitas[]" required="">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control price" placeholder="Harga" name="harga[]" required="">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control amount" placeholder="Amount" name="amount[]" required="">
                   </td>
                   <td>
                     <input type="button" id="delete_row" class="ibtnDel btn btn-danger" value="Delete">
@@ -66,9 +73,11 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="3" style="text-align: left;">
+                  <td colspan="2" style="text-align: left;">
                     <input type="button" class="btn btn-lg btn-block btn-success " id="addrow" value="Add Row" />
                   </td>
+                  <td><b>Total</b></td>
+                  <td><b class="total"></b></td>
                 </tr>
                 <tr>
                 </tr>
@@ -80,25 +89,82 @@
           </div>
               <!-- /.input group --
 
-          <!-- /.box-body -->
+                <!-- /.box-body -->
 
-          <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.box -->
           </div>
-        </form>
-      </div>
-      <!-- /.box -->
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- /.col -->
-  </div>
-  <!-- /.row -->
-</section>
-<!-- /.content -->
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script type="text/javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+
+//-------------------------------munculin harga--------------------------------------------------------------------------
+      $('tbody').delegate('.productname','change',function(){
+        var tr=$(this).parent().parent();
+        var id = tr.find('.productname').val();
+        var dataId={'id':id};
+        $.ajax({
+          type: 'GET',
+          url: "{{ URL::route('findPrice') }}",
+          dataType: 'json',
+          data: dataId,
+          succes:function(data){
+            tr.find('.price').val(data.price);
+          }
+        });
+      });
+
+      $('tbody').delegate('.productname','change',function(){
+        var tr=$(this).parent().parent();
+        tr.find('.qty').focus();
+      });
+
+//--------------------------------calculate function---------------------------------------------------------------------      
+$('tbody').delegate('.qty,.price,.amount','keyup',function(){
+  var tr =$(this).parent().parent();
+  var qty = tr.find('.qty').val();
+  var price = tr.find('.price').val();
+  var amount = (qty * price);
+  tr.find('.amount').val(amount);
+  total();
+});
+
+function total()
+{
+  var total =0;
+  $('.amount').each(function(i,e){
+    var amount = $(this).val()-0;
+    total +=amount;
+  })
+  $('.total').html(total);
+};
+
+//------------------------------format number-----------------------------------------------------------------------------
+Number.prototype.formatMoney = function(decPlaces, thouSeparator, decSeparator) {
+  var n = this,
+  decPlaces = isNan(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+  decSeparator = decSeparator == undefined ? "." : decSeparator,
+  thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
+  sign = n < 0 ? "-" : "",
+  i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+  j = (j = i.length) > 3 ? j % 3 : 0;
+  return sign + (j ? i.substr(0,j) + thouSeparator : "")
+  + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator)
+  + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+};
+
+//------------------------------add rows-------------------------------------------------------------------------------------
 
 $(document).ready(function () {
   var counter = 0;
@@ -108,7 +174,9 @@ $(document).ready(function () {
     var cols = "";
 
     cols += '<td><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option value="{{$listsampah->id_sampah}}">{{$listsampah->id_sampah}} - {{$listsampah->jenis_sampah}} - {{$listsampah->nama_sampah}}</option>@endforeach</select></td>';
-    cols += '<td><input type="text" class="form-control" placeholder="Kuantitas" name="kuantitas" required=""></td>';
+    cols += '<td><input type="text" class="form-control qty" placeholder="Kuantitas" name="kuantitas" required=""></td>';
+    cols += '<td><input type="text" class="form-control price" placeholder="Harga" name="harga[]" required=""></td>';
+    cols += '<td><input type="text" class="form-control amount" placeholder="Amount" name="amount[]" required=""></td>';
     cols += '<td><input type="button" id="delete_row" class="ibtnDel btn btn-danger" value="Delete"></td>';
     newRow.append(cols);
     $("table.order-list").append(newRow);
@@ -116,29 +184,10 @@ $(document).ready(function () {
   });
 
   $("table.order-list").on("click", ".ibtnDel", function (event) {
-    $(this).closest("tr").remove();
+    $(this).parent().parent().remove();
     counter -= 1;
+    total();
   });
 });
-
-
-// <<<<<<< HEAD
-//   $(document).ready(function(){
-//     var i=1;
-//     $('#add').click(function(){
-//       i++;
-//       $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" class="form-control" placeholder="ID Sampah" name="id_sampah" required=""></td><td><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-//     });
-
-//     $(document).on('click', '.btn_remove', function(){
-//       var button_id = $(this).attr("id"); 
-//       $('#row'+button_id+'').remove();
-//     });
-// =======
-//   $('#add').click(function(){
-//     $('#addmore').append('<div class="form-group"><div class="col-xs-4"><label>ID Sampah</label><select class="form-control select2" style="width: 100%;" name="id_sampah"><option selected="selected">ID Sampah</option>@foreach($sampah as $listsampah)<option>{{$listsampah->id_sampah}}</option>@endforeach</select></div><div class="col-xs-4"><label>Kuantitas</label><input type="text" class="form-control" placeholder="Kuantitas"name="kuantitas" required=""></div></div>');
-//     $('.add').select2();
-// >>>>>>> e2ccc50e390eb8c10a5595703e374d9abaacd989
-//   });
 </script>
 @endsection
