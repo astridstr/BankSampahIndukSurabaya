@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Nasabah;
 
@@ -10,18 +11,17 @@ class NasabahController extends Controller
     public function index()
     {
         $nasabah = Nasabah::orderBy('no_rekening','asc')->where('kategori_nasabah','individu')->get();
-        //dd($post);
+        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'individu'");
 
-        return view('menu-nasabah', ['nasabah'=>$nasabah]);
+        return view('menu-nasabah', ['nasabah'=>$nasabah, 'jumlahnasabah'=>$jumlahnasabah]);
 
     }
 
     public function indexkolektif()
     {
         $nasabah = Nasabah::orderBy('no_rekening','asc')->where('kategori_nasabah','kolektif')->get();
-        //dd($post);
-
-        return view('menu-nasabah.kolektif', ['nasabah'=>$nasabah]);
+        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'kolektif'");
+        return view('menu-nasabah.kolektif', ['nasabah'=>$nasabah, 'jumlahnasabah'=>$jumlahnasabah]);
     }
 
     public function getFormTambahNasabah()

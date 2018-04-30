@@ -7,7 +7,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Form Edit Data Sampah</h1>
+      <h1>Form Data Sampah</h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/nasabah') }}">Nasabah</a></li>
@@ -36,7 +36,7 @@
                 <div class="form-group">
                 <label>Jenis Sampah</label>
                   <select class="form-control select2" style="width: 100%;" name="jenis_sampah" required="" value="{{ $sampah->jenis_sampah }}">
-                    <option selected="selected">Pilih Jenis Sampah</option>
+                    <option selected="selected">{{ $sampah->jenis_sampah }}</option>
                     <option value="Tembaga">Tembaga</option>
                     <option value="Kuningan">Kuningan</option>
                     <option value="Aluminium">Aluminium</option>

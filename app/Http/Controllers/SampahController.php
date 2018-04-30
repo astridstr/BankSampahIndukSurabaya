@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Sampah;
 use App\Http\Requests;
@@ -13,8 +14,8 @@ class SampahController extends Controller
     {
         $sampah = Sampah::orderBy('id_sampah','asc')->get();
         //dd($post);
-
-        return view('menu-sampah', ['sampah'=>$sampah]);
+        $jumlahsampah = DB::select("SELECT COUNT(`id_sampah`) as jumlah FROM sampah");
+        return view('menu-sampah', ['sampah'=>$sampah, 'jumlahsampah'=>$jumlahsampah]);
     }
 
     public function getFormTambahDataSampah()

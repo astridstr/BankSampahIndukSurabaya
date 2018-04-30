@@ -7,11 +7,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Form Tambah Nasabah</h1>
+      <h1>Form Nasabah</h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/nasabah') }}">Nasabah</a></li>
-        <li class="active">Tambah Nasabah</li>
+        <li class="active">Form Nasabah</li>
       </ol>
     </section>
 

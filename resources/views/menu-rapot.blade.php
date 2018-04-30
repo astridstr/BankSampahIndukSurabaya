@@ -12,7 +12,6 @@
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ url('/rapotnasabah') }}">Rapot Nasabah</a></li>
-        <li class="active">Pertahun</li>
       </ol>
     </section>
 
@@ -26,8 +25,6 @@
               <li class="active"><a href="#surabaya-utara" data-toggle="tab">2018</a></li>
               <li><a href="#surabaya-timur" data-toggle="tab">2017</a></li>
               <li><a href="#surabaya-selatan" data-toggle="tab">2016</a></li>
-              <li class="pull-left header">Pertahun
-              </li>
             </ul>
             <div class="tab-content no-padding">
               <!-- Morris chart - Sales -->

@@ -17,18 +17,39 @@
 
     <!-- Main content -->
     <section class="content">
+      @foreach($jumlahnasabah as $jumlah)
       <div class="row">
-        <a href="{{ url('/nasabah-tambah')}}">
-          <div class="col-xs-3">
-            <div class="box">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{$jumlah->jumlah}}</h3>
+
+              <p>Total Nasabah Kolektif</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-stalker"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endforeach
+      <div class="row">
+        <a href="{{ url('/nasabah-tambah') }}">
+          <div class="col-lg-3 col-xs-6">
+            <div class="box box-warning box-solid">
               <div class="box-header">
-                <i class="fa fa-plus-square"></i> <span><h3 class="box-title">Tambah Data Nasabah</h3></span>
+                <div class="box-tools">
+                  <button type="button" class="btn btn-box-tool pull-left"><i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <span><h3 class="box-title">Tambah Data Nasabah</h3></span>
               </div>
             </div>
           </div>
         </a>
         <div class="col-xs-12">
-          <div class="box">
+          <div class="box box-warning">
             <div class="box-header">
               <h3 class="box-title">Data Nasabah <b>Kolektif</b></h3>
             </div>
