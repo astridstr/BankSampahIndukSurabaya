@@ -15,21 +15,16 @@ class TransaksiController extends Controller
 {
  public function index()
  {
-<<<<<<< HEAD
-   //$data = DB::select("select * from inputsampah");
-   $data = InputSampah::lists('id_sampah','kuantitas','harga_fluktuatif','amount');
-=======
    $data = DB::select("select * from inputsampah");
 
->>>>>>> bismillah
    return view('menu-transaksi', ['data'=>$data]);
 }
 
-// public function findPrice(Request $request)
-// {
-//     $price=Sampah::select('harga_fluktuatif')->where('id_sampah',$request->id_sampah)->first();
-//     return response()->json($price);
-// }
+public function findPrice(Request $request)
+{
+    $price=Sampah::select('harga_fluktuatif')->where('id_sampah',$request->id_sampah)->first();
+    return response()->json($price);
+}
 
 public function getFormTambahTransaksi()
 {
@@ -44,17 +39,6 @@ public function setFormTambahTransaksi(Request $request)
     //return $request;
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
-<<<<<<< HEAD
-    if($transaksi->save()){
-        $id = $transaksi->id;
-        foreach ($request as $key => $v) {
-            $data = array('no_rekening' => $id,
-                'id_sampah' => $request->id_sampah [$key],
-                'kuantitas'=>$request->kuantitas [$key],
-                'harga'=>$request->harga [$key],
-                'amount'=>$request->amount [$key]);
-            InputSampah::insert($data);
-=======
     // $id_sampah = array();
     //     $id_sampah = Input::get('id_sampah');
     //     $kuantitas = Input::get('kuantitas');
@@ -72,7 +56,6 @@ public function setFormTambahTransaksi(Request $request)
                 'amount' => $request->amount[$i],
             ];
             dd($dataSet[$i]);
->>>>>>> bismillah
         }
     }
     
