@@ -16,10 +16,10 @@ class CreateInputsampahTable extends Migration
         Schema::create('inputsampah', function (Blueprint $table) {
             $table->increments('id');
             $table->string('no_rekening');
-            $table->string('id_sampah');
-            $table->integer('kuantitas');
-            $table->integer('harga');
-            $table->integer('amount');
+            $table->json('id_sampah');
+            $table->json('kuantitas');
+            $table->json('harga');
+            $table->json('amount');
             $table->timestamps();
         });
     }
