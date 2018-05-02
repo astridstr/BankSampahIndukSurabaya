@@ -39,12 +39,12 @@ public function setFormTambahTransaksi(Request $request)
     //return $request;
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
-    // $id_sampah = array();
-    //     $id_sampah = Input::get('id_sampah');
-    //     $kuantitas = Input::get('kuantitas');
-    //     $harga = Input::get('harga');
-    //     $amount = Input::get('amount');
-    // $inputsampah = new InputSampah;
+    $id_sampah = array();
+        $id_sampah = Input::get('id_sampah');
+        $kuantitas = Input::get('kuantitas');
+        $harga = Input::get('harga');
+        $amount = Input::get('amount');
+    $inputsampah = new InputSampah;
     $dataSet = [];
     if ($transaksi->save()) {
         for ($i = 1; $i < count($request->id_sampah); $i++) {
@@ -55,7 +55,6 @@ public function setFormTambahTransaksi(Request $request)
                 'harga' => $request->harga[$i],
                 'amount' => $request->amount[$i],
             ];
-            dd($dataSet[$i]);
         }
     }
     
