@@ -15,15 +15,16 @@ class TransaksiController extends Controller
 {
  public function index()
  {
-   $data = DB::select("select * from inputsampah");
+   //$data = DB::select("select * from inputsampah");
+   $data = InputSampah::lists('id_sampah','kuantitas','harga_fluktuatif','amount');
    return view('menu-transaksi', ['data'=>$data]);
 }
 
-public function findPrice(Request $request)
-{
-    $price=Sampah::select('harga_fluktuatif')->where('id_sampah',$request->id_sampah)->first();
-    return response()->json($price);
-}
+// public function findPrice(Request $request)
+// {
+//     $price=Sampah::select('harga_fluktuatif')->where('id_sampah',$request->id_sampah)->first();
+//     return response()->json($price);
+// }
 
 public function getFormTambahTransaksi()
 {
@@ -42,7 +43,7 @@ public function setFormTambahTransaksi(Request $request)
         $id = $transaksi->id;
         foreach ($request as $key => $v) {
             $data = array('no_rekening' => $id,
-                'id_sampah' => $v,
+                'id_sampah' => $request->id_sampah [$key],
                 'kuantitas'=>$request->kuantitas [$key],
                 'harga'=>$request->harga [$key],
                 'amount'=>$request->amount [$key]);
