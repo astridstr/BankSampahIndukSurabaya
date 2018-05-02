@@ -67,7 +67,7 @@
                   <tr>
                     <td>{{$listdata->no_rekening}}</td>
                     <td>Total Transaksi</td>
-                    <td>Tanggal Transaksi</td>
+                    <td>{{$listdata->created_at}}</td>
                     <td>
                       <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listdata->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
                     </td>

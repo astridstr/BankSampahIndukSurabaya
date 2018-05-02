@@ -38,6 +38,8 @@
                   <b>No Telp</b> <span class="pull-right">{{$listnasabah->no_telp}}</span>
                 </li>
               </ul>
+
+              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               @endforeach
             </div>
           </div>

@@ -10,7 +10,19 @@ class InputSampah extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     public $incrementing = true;
-    protected $fillable = array('no_rekening');
+
+    protected $casts = [
+    	'id_sampah' => 'json',
+    	'kuantitas' => 'json',
+    	'harga' => 'json',
+    	'amount' => 'json',
+    ];
+
+    protected $fillable = ['no_rekening', 'id_sampah', 'kuantitas', 'harga', 'amount'];
+
+    // protected $fillable = array('no_rekening');
+
+
     public function transaksi(){
     	return $this->hasMany('App\Transaksi');
     }
