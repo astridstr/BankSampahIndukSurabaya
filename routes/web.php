@@ -28,10 +28,6 @@ Route::post('/transaksi-tambah', 'TransaksiController@setFormTambahTransaksi');
 Route::get('/transaksi-edit/{no_rekening}', 'TransaksiController@editFormTambahTransaksi');
 Route::post('/transaksi-update/{no_rekening}', 'TransaksiController@updateFormTambahTransaksi');
 Route::get('/transaksi-delete/{id}', 'TransaksiController@deleteTransaksi');
-// Route::get('/findPrice',[
-// 	'as'=>'findPrice',
-// 	'uses'=>'TransaksiController@findPrice'
-// ]);
 
 // Menu Nasabah
 Route::get('/nasabah', 'NasabahController@index');
@@ -56,6 +52,8 @@ Route::get('/rapotnasabah-perwilayah', 'RapotController@indexperwilayah');
 //Menu Buku Tabungan
 Route::get('/bukutabungan', 'TabunganController@index');
 Route::post('/bukutabungan-cari', 'TabunganController@cari');
+Route::get('/bukutabungan/notfound', 'TabunganController@error');
+
 
 // Route::get('/listnasabah', function () {
 //     return view('admin/home');
