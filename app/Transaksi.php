@@ -17,8 +17,12 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Nasabah', 'no_rekening');
     }
-     public function sampah()
+    public function sampah()
     {
         return $this->belongsToMany('App\Sampah');
+    }
+    public function inputsampah()
+    {
+        return $this->belongsTo('App\inputSampah', 'id_transaksi');
     }
 }

@@ -18,7 +18,7 @@ class InputSampah extends Model
     	'amount' => 'json',
     ];
 
-    protected $fillable = ['no_rekening', 'id_sampah', 'kuantitas', 'harga', 'amount'];
+    protected $fillable = ['id_transaksi','no_rekening', 'id_sampah', 'kuantitas', 'harga', 'amount'];
 
     // protected $fillable = array('no_rekening');
 

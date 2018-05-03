@@ -15,6 +15,7 @@ class CreateInputsampahTable extends Migration
     {
         Schema::create('inputsampah', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_transaksi');
             $table->string('no_rekening');
             $table->json('id_sampah');
             $table->json('kuantitas');

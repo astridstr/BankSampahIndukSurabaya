@@ -50,6 +50,7 @@ public function setFormTambahTransaksi(Request $request)
     if ($transaksi->save()) {
         for ($i = 0; $i < count($request->id_sampah); $i++) {
             $dataSet[] = [
+                'id_transaksi' => $transaksi->id_transaksi,
                 'no_rekening' => $transaksi->no_rekening,
                 'id_sampah' => $request->id_sampah[$i],
                 'kuantitas' => $request->kuantitas[$i],
