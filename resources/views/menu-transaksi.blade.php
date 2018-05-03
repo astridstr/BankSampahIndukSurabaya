@@ -68,7 +68,6 @@
               <tbody>
                 @foreach($sums as $sum)
                 <tr>
-                  <td>{{$sum->no_rekening}}</td>
                   <td>{{$sum->id_transaksi}}</td>
                   <td>{{$sum->no_rekening}}</td>
                   <td>{{$sum->jml}}</td>
