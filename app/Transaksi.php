@@ -8,7 +8,7 @@ class Transaksi extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-    'no_rekening',
+        'no_rekening',
     ]; 
     
     //const CREATED_AT = 'tanggal_transaksi';
@@ -17,7 +17,7 @@ class Transaksi extends Model
     {
         return $this->belongsTo('App\Nasabah', 'no_rekening');
     }
-     public function sampah()
+    public function sampah()
     {
         return $this->belongsToMany('App\Sampah');
     }
