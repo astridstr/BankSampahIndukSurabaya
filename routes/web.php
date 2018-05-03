@@ -25,9 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/transaksi', 'TransaksiController@index');
 Route::get('/transaksi-tambah', 'TransaksiController@getFormTambahTransaksi');
 Route::post('/transaksi-tambah', 'TransaksiController@setFormTambahTransaksi');
-Route::get('/transaksi-edit/{no_rekening}', 'TransaksiController@editFormTambahTransaksi');
-Route::post('/transaksi-update/{no_rekening}', 'TransaksiController@updateFormTambahTransaksi');
-Route::get('/transaksi-delete/{id}', 'TransaksiController@deleteTransaksi');
+Route::get('/transaksi-edit/{id_transaksi}', 'TransaksiController@editFormTambahTransaksi');
+Route::post('/transaksi-update/{id_transaksi}', 'TransaksiController@updateFormTambahTransaksi');
+Route::get('/transaksi-delete/{id_transaksi}', 'TransaksiController@deleteTransaksi');
 
 // Menu Nasabah
 Route::get('/nasabah', 'NasabahController@index');

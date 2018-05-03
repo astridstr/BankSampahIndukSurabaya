@@ -24,7 +24,7 @@
 
           <!-- /.box-header -->
           <!-- form start -->
-          <form role="form" action="{{ url('transaksi-update', array($transaksi->no_rekening)) }}" method="post" enctype="multipart/form-data">
+          <form role="form" action="{{ url('transaksi-update', array($transaksi->id_transaksi)) }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="box-body">
               <!-- no_rekening -->
@@ -48,27 +48,29 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($inputsampah as $listinputsampah)
                   <tr>
                     <td>
                       <input type="text" class="form-control qty" placeholder="ID Sampah" 
-                      name="id_sampah[]" required="" value="{{ $inputsampah->id_sampah }}">
+                      name="id_sampah[]" required="" value="{{ $listinputsampah->id_sampah }}">
                     </td>
                     <td>
                       <input type="text" class="form-control qty" placeholder="Kuantitas" 
-                      name="kuantitas[]" required="" value="{{ $inputsampah->kuantitas }}">
+                      name="kuantitas[]" required="" value="{{ $listinputsampah->kuantitas }}">
                     </td>
                     <td>
                       <input type="text" class="form-control price" placeholder="Harga" 
-                      name="harga[]" required="" value="{{ $inputsampah->harga }}">
+                      name="harga[]" required="" value="{{ $listinputsampah->harga }}">
                     </td>
                     <td>
                       <input type="text" class="form-control amount" placeholder="Amount" 
-                      name="amount[]" required="" value="{{ $inputsampah->amount }}">
+                      name="amount[]" required="" value="{{ $listinputsampah->amount }}">
                     </td>
                     <td>
                       <input type="button" id="delete_row" class="ibtnDel btn btn-danger" value="Delete">
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
                 <tfoot>
                   <tr>
