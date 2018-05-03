@@ -100,12 +100,12 @@
           </div>
           <!-- /.col -->
           <div class="col-md-4">
-        <!-- general form elements -->
-        <div class="box box-primary">
-          <div class="form-group">
+            <!-- general form elements -->
+            <div class="box box-primary">
+              <div class="form-group">
                 <label>Data Harga Sampah</label>
               </div>
-          <table id="myTable" class=" table order-list">
+              <table id="myTable" class=" table order-list">
                 <thead>
                   <tr>
                     <th>ID Sampah</th>
@@ -122,19 +122,19 @@
                 </tr>
                 @endforeach
               </tbody>
-              </table>
+            </table>
+          </div>
         </div>
-      </div>
 
-        </div>
-        <!-- /.row -->
-      </section>
-      <!-- /.content -->
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script type="text/javascript">
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript">
 
 //--------------------------------calculate function---------------------------------------------------------------------      
 $('tbody').delegate('.qty,.price,.amount','keyup',function(){
@@ -154,20 +154,6 @@ function total()
     total +=amount;
   })
   $('.total').html(total);
-};
-
-//------------------------------format number-----------------------------------------------------------------------------
-Number.prototype.formatMoney = function(decPlaces, thouSeparator, decSeparator) {
-  var n = this,
-  decPlaces = isNan(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
-  decSeparator = decSeparator == undefined ? "." : decSeparator,
-  thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
-  sign = n < 0 ? "-" : "",
-  i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
-  j = (j = i.length) > 3 ? j % 3 : 0;
-  return sign + (j ? i.substr(0,j) + thouSeparator : "")
-  + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator)
-  + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
 };
 
 //------------------------------add rows-------------------------------------------------------------------------------------

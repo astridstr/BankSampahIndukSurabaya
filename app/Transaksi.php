@@ -8,7 +8,7 @@ class Transaksi extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-    'no_rekening',
+        'no_rekening',
     ]; 
     
     //const CREATED_AT = 'tanggal_transaksi';

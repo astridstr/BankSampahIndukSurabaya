@@ -18,18 +18,18 @@
   <section class="content">
     <div class="row">
       <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3>150</h3>
 
-              <p>Transaksi</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-balance-scale"></i>
-            </div>
+            <p>Transaksi</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-balance-scale"></i>
           </div>
         </div>
+      </div>
     </div>
     <div class="row">    
       <a href="{{ url('/transaksi-tambah') }}">
@@ -63,19 +63,19 @@
                 </tr>
               </thead>
               <tbody>
-                  @foreach($data as $listdata)
-                  <tr>
-                    <td>{{$listdata->no_rekening}}</td>
-                    <td>Total Transaksi</td>
-                    <td>{{$listdata->created_at}}</td>
-                    <td>
-                      <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listdata->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-danger btn-sm"><a href="{{ url('transaksi-delete', [$listdata->id]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
-                    </td>
-                  </tr>
-                  @endforeach
+                @foreach($data as $listdata)
+                <tr>
+                  <td>{{$sum->no_rekening}}</td>
+                  <td>{{$sum->jml}}</td>
+                  <td>{{$listdata->created_at}}</td>
+                  <td>
+                    <button type="button" class="btn  btn-primary btn-sm"><a href="{{ url('transaksi-edit', array($listdata->no_rekening)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-sm"><a href="{{ url('transaksi-delete', [$listdata->id]) }}"><span class="glyphicon glyphicon-trash"></span></a></button>
+                  </td>
+                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
