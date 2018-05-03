@@ -37,9 +37,14 @@
                 <li class="list-group-item">
                   <b>No Telp</b> <span class="pull-right">{{$listnasabah->no_telp}}</span>
                 </li>
+                @foreach($saldo as $saldoo)
+                <li class="list-group-item">
+                  <b>Saldo</b> <span class="pull-right">{{$saldoo->jumlah}}</span>
+                </li>
+                @endforeach
               </ul>
-
-              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+<!-- 
+              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
               @endforeach
             </div>
           </div>
@@ -48,7 +53,7 @@
         </div>
         <!-- Histori Tabungan -->
         <div class="col-xs-9">
-          <div class="box">
+          <div class="box box-primary box-solid">
             <div class="box-header">
               <h3 class="box-title">Histori Transaksi</h3>
             </div>
@@ -58,22 +63,18 @@
                 <thead>
                 <tr>
                   <th>ID Transaksi</th>
-                  <th>ID Sampah</th>
-                  <th>Kuantitas</th>
-                  <th>Harga</th>
-                  <th>Saldo</th>
+                  <th>Tanggal Transaksi</th>
+                  <th>Jumlah</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($sums as $sum)
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
+                  <td>{{$sum->id_transaksi}}</td>
+                  <td>{{$sum->created_at}}</td>
+                  <td>{{$sum->jml}}</td>
                 </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
