@@ -74,7 +74,7 @@
               <tfoot>
                 <tr>
                   <td colspan="2" style="text-align: left;">
-                    <input type="button" class="btn btn-lg btn-block btn-success " id="addrow" value="Add Row" />
+                    <input type="button" class="btn btn btn-block btn-success " id="addrow" value="Add Row" />
                   </td>
                   <td><b>Total</b></td>
                   <td><b class="total"></b></td>
@@ -87,10 +87,6 @@
 
 
           </div>
-              <!-- /.input group --
-
-                <!-- /.box-body -->
-
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
@@ -101,28 +97,30 @@
           <!-- /.col -->
           <div class="col-md-4">
             <!-- general form elements -->
-            <div class="box box-primary">
-              <div class="form-group">
-                <label>Data Harga Sampah</label>
+            <div class="box box-primary box-solid">
+              <div class="box-header">
+                <span><h3 class="box-title">Daftar Harga Sampah</h3></span>
               </div>
-              <table id="myTable" class=" table order-list">
-                <thead>
-                  <tr>
-                    <th>ID Sampah</th>
-                    <th>Harga Fluktuatif</th>
-                    <th>Harga Stabil</th>
+              <div class="box-body">
+                <table id="myTable" class=" table table-striped table-condensed table-responsive order-list">
+                  <thead>
+                    <tr>
+                      <th>ID Sampah</th>
+                      <th>Harga Fluktuatif</th>
+                      <th>Harga Stabil</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   @foreach($sampah as $listsampah)
+                   <tr>
+                    <td>{{$listsampah->id_sampah}}</td>
+                    <td>{{$listsampah->harga_fluktuatif}}</td>
+                    <td>{{$listsampah->harga_stabil}}</td>
                   </tr>
-                </thead>
-                <tbody>
-                 @foreach($sampah as $listsampah)
-                 <tr>
-                  <td>{{$listsampah->id_sampah}}</td>
-                  <td>{{$listsampah->harga_fluktuatif}}</td>
-                  <td>{{$listsampah->harga_stabil}}</td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
           </div>
         </div>
 
