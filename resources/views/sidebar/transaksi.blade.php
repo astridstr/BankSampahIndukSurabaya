@@ -15,8 +15,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"> Menu</li>
-        <li class="treeview">
-          <a href="{{ url('/bukutabungan') }}"">
+        <li>
+          <a href="{{ url('/transaksi') }}"">
             <i class="fa fa-book"></i> <span>Transaksi</span>
           </a>
         </li>

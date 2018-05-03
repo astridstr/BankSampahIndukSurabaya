@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('sidebar.transaksi')
+@include('sidebar.tabungan')
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
