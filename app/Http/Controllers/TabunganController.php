@@ -18,8 +18,19 @@ class TabunganController extends Controller
     {
     	$no_rekening = $request->input('no_rekening');
     	
-        $nasabah = DB::select("select * from nasabah where no_rekening = '$no_rekening'");
+        $findnorek = DB::select("select no_rekening from nasabah where no_rekening = '$no_rekening'");
+
+        if ( !empty($findnorek)) {
+            $nasabah = DB::select("select * from nasabah where no_rekening = '$no_rekening'");
+        } else {
+            return view('menu-tabungan-empty');
+        }
 
         return view('menu-tabungan-cari', ['nasabah'=>$nasabah]);
     }
+    public function error()
+    {
+        return view('menu-tabungan-empty');
+    }
+    
 }

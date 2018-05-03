@@ -56,6 +56,8 @@ Route::get('/rapotnasabah-perwilayah', 'RapotController@indexperwilayah');
 //Menu Buku Tabungan
 Route::get('/bukutabungan', 'TabunganController@index');
 Route::post('/bukutabungan-cari', 'TabunganController@cari');
+Route::get('/bukutabungan/notfound', 'TabunganController@error');
+
 
 // Route::get('/listnasabah', function () {
 //     return view('admin/home');
