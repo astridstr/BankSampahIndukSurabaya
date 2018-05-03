@@ -60,11 +60,11 @@ public function editFormTambahTransaksi($no_rekening)
     foreach ($transaksi as $transaksi) {
 
     }
-    $inputsampah = DB::select("select * from inputsampah where no_rekening=$no_rekening");
+    $inputsampah = DB::select("SELECT * FROM `inputsampah` WHERE `no_rekening`=$no_rekening");
     foreach ($inputsampah as $inputsampah) {
 
     }
-    return view('form.edit.transaksi', ['sampah'=>$sampah], ['transaksi'=>$transaksi], ['inputsampah'=>$inputsampah]);
+    return view('form.edit.transaksi', compact('sampah','transaksi','inputsampah'));
 }
 
 public function updateFormTambahTransaksi(Request $request, $no_rekening)
