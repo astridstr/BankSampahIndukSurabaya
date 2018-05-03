@@ -34,7 +34,7 @@ public function setFormTambahTransaksi(Request $request)
     //return $request;
     $transaksi = new Transaksi();
     $transaksi->no_rekening = $request->input('no_rekening');
-<<<<<<< HEAD
+
     $id_sampah = array();
         $id_sampah = Input::get('id_sampah');
         $kuantitas = Input::get('kuantitas');
@@ -48,9 +48,6 @@ public function setFormTambahTransaksi(Request $request)
     //     $harga = Input::get('harga');
     //     $amount = Input::get('amount');
     // $inputsampah = new InputSampah;
-=======
->>>>>>> 78efc70abc1a4bd41e0571809391dff8650ff8ad
-
     $dataSet = [];
     if ($transaksi->save()) {
         for ($i = 0; $i < count($request->id_sampah); $i++) {
