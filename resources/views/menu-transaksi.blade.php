@@ -68,15 +68,9 @@
               <tbody>
                 @foreach($sums as $sum)
                 <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  <td>{{$listdata->no_rekening}}</td>
-=======
-=======
->>>>>>> 946778202a3cb16a757b39730bf6aa4a42a46708
+                  <td>{{$sum->no_rekening}}</td>
                   <td>{{$sum->id_transaksi}}</td>
                   <td>{{$sum->no_rekening}}</td>
->>>>>>> 946778202a3cb16a757b39730bf6aa4a42a46708
                   <td>{{$sum->jml}}</td>
                   <td>{{$sum->created_at}}</td>
                   <td>
