@@ -65,7 +65,7 @@
               <tbody>
                 @foreach($data as $listdata)
                 <tr>
-                  <td>{{$sum->no_rekening}}</td>
+                  <td>{{$listdata->no_rekening}}</td>
                   <td>{{$sum->jml}}</td>
                   <td>{{$listdata->created_at}}</td>
                   <td>
