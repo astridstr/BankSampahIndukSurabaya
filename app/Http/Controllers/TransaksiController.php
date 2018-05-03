@@ -16,9 +16,10 @@ class TransaksiController extends Controller
    public function index()
    {
      $data = DB::select("select * from inputsampah");
-     $sum = DB::select("SELECT `no_rekening`, SUM(amount) AS `jml` FROM `inputsampah` GROUP BY `no_rekening`");
-     foreach ($sum as $sum) {}
-        return view('menu-transaksi', ['data'=>$data], ['sum'=>$sum]);
+     $jumlahtransaksi = DB::select("SELECT COUNT(`id_transaksi`) as jumlah FROM transaksi");
+     $sums = DB::select("select DISTINCT i.id_transaksi, i.no_rekening, i.created_at, tmp.jml from inputsampah i, (SELECT `id_transaksi`, SUM(amount) AS `jml` FROM `inputsampah` GROUP BY `id_transaksi`) tmp where i.id_transaksi = tmp.id_transaksi");
+
+        return view('menu-transaksi', ['data'=>$data, 'jumlahtransaksi'=>$jumlahtransaksi, 'sums'=>$sums]);
 }
 
 public function getFormTambahTransaksi()
@@ -73,11 +74,11 @@ public function editFormTambahTransaksi($no_rekening)
     foreach ($transaksi as $transaksi) {
 
     }
-    $inputsampah = DB::select("select * from inputsampah where no_rekening=$no_rekening");
+    $inputsampah = DB::select("SELECT * FROM `inputsampah` WHERE `no_rekening`=$no_rekening");
     foreach ($inputsampah as $inputsampah) {
 
     }
-    return view('form.edit.transaksi', ['sampah'=>$sampah], ['transaksi'=>$transaksi], ['inputsampah'=>$inputsampah]);
+    return view('form.edit.transaksi', compact('sampah','transaksi','inputsampah'));
 }
 
 public function updateFormTambahTransaksi(Request $request, $no_rekening)
