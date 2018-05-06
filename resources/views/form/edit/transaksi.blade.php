@@ -84,58 +84,51 @@
                   </tr>
                 </tfoot>
               </table>
-              <!-- /.input group -->
-
-
             </div>
-              <!-- /.input group --
-
-                <!-- /.box-body -->
-
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+            <div class="box-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <!-- /.box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-4">
-            <!-- general form elements -->
-            <div class="box box-primary">
-              <div class="form-group">
-                <label>Data Harga Sampah</label>
-              </div>
-              <table id="myTable" class=" table order-list">
-                <thead>
-                  <tr>
-                    <th>ID Sampah</th>
-                    <th>Harga Fluktuatif</th>
-                    <th>Harga Stabil</th>
-                  </tr>
-                </thead>
-                <tbody>
-                 @foreach($sampah as $listsampah)
-                 <tr>
-                  <td>{{$listsampah->id_sampah}}</td>
-                  <td>{{$listsampah->harga_fluktuatif}}</td>
-                  <td>{{$listsampah->harga_stabil}}</td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
+          </form>
         </div>
-
+        <!-- /.box -->
       </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+      <!-- /.col -->
+      <div class="col-md-4">
+        <!-- general form elements -->
+        <div class="box box-primary">
+          <div class="form-group">
+            <label>Data Harga Sampah</label>
+          </div>
+          <table id="myTable" class=" table order-list">
+            <thead>
+              <tr>
+                <th>ID Sampah</th>
+                <th>Harga Fluktuatif</th>
+                <th>Harga Stabil</th>
+              </tr>
+            </thead>
+            <tbody>
+             @foreach($sampah as $listsampah)
+             <tr>
+              <td>{{$listsampah->id_sampah}}</td>
+              <td>{{$listsampah->harga_fluktuatif}}</td>
+              <td>{{$listsampah->harga_stabil}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script type="text/javascript">
+  <!-- /.row -->
+</section>
+<!-- /.content -->
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript">
 
 //--------------------------------calculate function---------------------------------------------------------------------      
 $('tbody').delegate('.qty,.price,.amount','keyup',function(){
