@@ -42,7 +42,7 @@
                   <button type="button" class="btn btn-box-tool pull-left"><i class="fa fa-plus"></i>
                   </button>
                 </div>
-                <span><h3 class="box-title">Tambah Data Nasabah</h3></span>
+                <span><h3 class="box-title">Tambah Data Sampah</h3></span>
               </div>
             </div>
           </div>
