@@ -20,6 +20,7 @@ Route::get('/', function () {
     	return redirect('/home');
     }
 });
+
 Route::get('/home', 'HomeController@index')->name('home');
 // Menu Transaksi
 Route::get('/transaksi', 'TransaksiController@index');
@@ -28,6 +29,7 @@ Route::post('/transaksi-tambah', 'TransaksiController@setFormTambahTransaksi');
 Route::get('/transaksi-edit/{id_transaksi}', 'TransaksiController@editFormTambahTransaksi');
 Route::post('/transaksi-update/{id_transaksi}', 'TransaksiController@updateFormTambahTransaksi');
 Route::get('/transaksi-delete/{id_transaksi}', 'TransaksiController@deleteTransaksi');
+Route::get('/transaksi-nota/{id_transaksi}', 'TransaksiController@notaTransaksi')->name('nota.transaksi');
 
 // Menu Nasabah
 Route::get('/nasabah', 'NasabahController@index');
@@ -59,4 +61,3 @@ Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf'
 
 Route::get('/home', 'ControllerHome@home');
 Route::get('/nasabah/listnasabah', 'ControllerDataNasabah@requestDaftarDataNasabah');
-

@@ -70,6 +70,17 @@
       display: block;
       z-index: 7;
     }
+    .buttonpdf {
+    background-color: #008CBA;;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
   </style>
 
 </head>

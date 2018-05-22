@@ -23,9 +23,9 @@ class PdfGenerateController extends Controller
         	// Set extra option
         	PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         	// pass view file
-            $pdf = PDF::loadView('pdfview');
+            $pdf = PDF::loadView('nota-transaksi');
             // download pdf
-            return $pdf->download('pdfview.pdf');
+            return $pdf->download('nota.pdf');
         }
         return view('pdfview');
     }
