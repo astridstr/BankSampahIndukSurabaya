@@ -50,15 +50,15 @@
                 </div>
                 <!-- harga_fluktuatif -->
                 <div class="form-group">
-                  <label>Harga Fluktuatif<small> *harga untuk nasabah kolektif</small></label>
-                  <input type="text" class="form-control" placeholder="Harga Fluktuatif"
-                  name="harga_fluktuatif" value="{{ $sampah->harga_fluktuatif }}">
+                  <label>Harga Cash</label>
+                  <input type="text" class="form-control" placeholder="Harga Cash"
+                  name="harga_fluktuatif" value="{{ $sampah->harga_cash }}">
                 </div>
                 <!-- harga_stabil -->
                 <div class="form-group">
-                  <label>Harga Stabil</label>
-                  <input type="text" class="form-control" placeholder="Harga Stabil"
-                  name="harga_stabil" required="" value="{{ $sampah->harga_stabil }}">
+                  <label>Harga Tabungan</label>
+                  <input type="text" class="form-control" placeholder="Harga Tabungan"
+                  name="harga_stabil" required="" value="{{ $sampah->harga_tabungan }}">
                 </div>
                 <!-- contoh_barang -->
                 <div class="form-group">

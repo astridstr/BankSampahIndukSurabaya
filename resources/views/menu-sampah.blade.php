@@ -60,8 +60,8 @@
                   <th>Id</th>
                   <th>Jenis Sampah</th>
                   <th>Nama Sampah</th>
-                  <th>Harga Fluktuatif</th>
-                  <th>Harga Stabil</th>
+                  <th>Harga Cash</th>
+                  <th>Harga Tabungan</th>
                   <th>Contoh Barang</th>
                   <th>Edit</th>
                   <th>Delete</th>
@@ -73,8 +73,8 @@
                   <td>{{$listsampah->id_sampah}}</td>
                   <td>{{$listsampah->jenis_sampah}}</td>
                   <td>{{$listsampah->nama_sampah}}</td>
-                  <td>{{$listsampah->harga_fluktuatif}}</td>
-                  <td>{{$listsampah->harga_stabil}}</td>
+                  <td>{{$listsampah->harga_cash}}</td>
+                  <td>{{$listsampah->harga_tabungan}}</td>
                   <td>{{$listsampah->contoh_barang}}</td>
                   <td>
                     <button type="button" class="btn btn-primary btn-sm"><a href="{{ url('datasampah-edit', array($listsampah->id_sampah)) }}"><span class="glyphicon glyphicon-pencil"></span></a></button>

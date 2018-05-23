@@ -106,16 +106,16 @@
                   <thead>
                     <tr>
                       <th>ID Sampah</th>
-                      <th>Harga Fluktuatif</th>
-                      <th>Harga Stabil</th>
+                      <th>Harga Cash</th>
+                      <th>Harga Tabungan</th>
                     </tr>
                   </thead>
                   <tbody>
                    @foreach($sampah as $listsampah)
                    <tr>
                     <td>{{$listsampah->id_sampah}}</td>
-                    <td>{{$listsampah->harga_fluktuatif}}</td>
-                    <td>{{$listsampah->harga_stabil}}</td>
+                    <td>{{$listsampah->harga_cash}}</td>
+                    <td>{{$listsampah->harga_tabungan}}</td>
                   </tr>
                   @endforeach
                   </tbody>
