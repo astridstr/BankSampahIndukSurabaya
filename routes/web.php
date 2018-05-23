@@ -57,7 +57,7 @@ Route::post('/bukutabungan-cari', 'TabunganController@cari');
 Route::get('/bukutabungan/notfound', 'TabunganController@error');
 
 // Export PDF
-Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
+Route::get('nota-transaksi/{id}', 'PdfGenerateController@pdfviewNota')->name('nota-transaksi');
 
 Route::get('/home', 'ControllerHome@home');
 Route::get('/nasabah/listnasabah', 'ControllerDataNasabah@requestDaftarDataNasabah');

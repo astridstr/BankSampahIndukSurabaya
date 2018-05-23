@@ -66,7 +66,9 @@
                   
                 </table>
                 <div class="box-footer">
-                  <a href="#" class="buttonpdf">Print Nota </a>
+                  @foreach($nota as $data)
+                  <a href="{{action('PdfGenerateController@pdfviewNota', $data->id_transaksi)}}" class="btn btn-primary">Download as PDF</a>
+                  @endforeach
                 </div>
               </div>
           </div>

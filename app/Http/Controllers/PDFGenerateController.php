@@ -9,24 +9,27 @@ use PDF;
 
 class PdfGenerateController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function pdfview(Request $request)
+    public function pdfviewNota($id_transaksi)
     {
-        $users = DB::table("users")->get();
-        view()->share('users',$users);
+        $nota = DB::table('transaksi')
+        ->join('nasabah', 'nasabah.no_rekening', '=', 'transaksi.no_rekening')
+        ->where('transaksi.id_transaksi', $id_transaksi)
+        ->select('transaksi.*', 'nasabah.nama_nasabah')
+        ->get(); 
 
-        if($request->has('download')){
-        	// Set extra option
-        	PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-        	// pass view file
-            $pdf = PDF::loadView('nota-transaksi');
-            // download pdf
-            return $pdf->download('nota.pdf');
-        }
-        return view('pdfview');
+        $sampah = DB::table('inputsampah')
+            ->where('inputsampah.id_transaksi', $id_transaksi)
+            ->select('inputsampah.*')
+            ->get();         
+     
+        $total = DB::table('inputsampah')
+            ->select('id_transaksi', DB::raw('SUM(amount) as total'))
+            ->groupBy('id_transaksi')
+            ->where('inputsampah.id_transaksi', $id_transaksi)
+            ->get();  
+
+        PDF::setOptions(['dpi' => 150, "default_paper_size" => "a5", "default_font" => "verdana"]);
+        $pdf = PDF::loadView('nota-transaksi', ['nota'=>$nota, 'sampah'=>$sampah, 'total'=>$total]);
+        return $pdf->download('nota-transaksi.pdf');
     }
 }
