@@ -10,8 +10,11 @@ class NasabahController extends Controller
 {
     public function index()
     {
-        $nasabah = Nasabah::orderBy('no_rekening','asc')->where('kategori_nasabah','individu')->get();
-        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'individu'");
+        $nasabah = Nasabah::orderBy('no_rekening','asc')
+                    ->where('kategori_nasabah','individu')
+                    ->where('status','1')
+                    ->get();
+        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'individu' AND status = '1' ");
 
         return view('menu-nasabah', ['nasabah'=>$nasabah, 'jumlahnasabah'=>$jumlahnasabah]);
 
@@ -19,8 +22,11 @@ class NasabahController extends Controller
 
     public function indexkolektif()
     {
-        $nasabah = Nasabah::orderBy('no_rekening','asc')->where('kategori_nasabah','kolektif')->get();
-        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'kolektif'");
+        $nasabah = Nasabah::orderBy('no_rekening','asc')
+                    ->where('kategori_nasabah','kolektif')
+                    ->where('status','1')
+                    ->get();
+        $jumlahnasabah = DB::select("SELECT COUNT(`no_rekening`) as jumlah FROM nasabah WHERE `kategori_nasabah` = 'kolektif' AND status = '1'");
         return view('menu-nasabah.kolektif', ['nasabah'=>$nasabah, 'jumlahnasabah'=>$jumlahnasabah]);
     }
 
@@ -32,6 +38,7 @@ class NasabahController extends Controller
     public function setFormTambahNasabah(Request $request)
     {
         $nasabah = new Nasabah();
+        $nasabah->status = '1';
         $nasabah->nama_nasabah = $request->input('nama_nasabah');
         $nasabah->kategori_nasabah = $request->input('kategori_nasabah');
         $nasabah->nama_banksampah = $request->input('nama_banksampah');
@@ -90,9 +97,20 @@ class NasabahController extends Controller
 
     public function deleteNasabah($no_rekening)
     {
-        Nasabah::destroy($no_rekening);
-        return back();
+        $nasabah = Nasabah::find($no_rekening);
+        $nasabah->status = '0';
+        
+
+        $nasabah->save();
+
+        return redirect()->back();
     }
+
+    // public function deleteNasabah($no_rekening)
+    // {
+    //     Nasabah::destroy($no_rekening);
+    //     return back();
+    // }
 
 
 }
